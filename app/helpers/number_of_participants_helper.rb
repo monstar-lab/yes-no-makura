@@ -1,0 +1,2 @@
+module NumberOfParticipantsHelper
+end

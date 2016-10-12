@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/ruby,rails,sublimetext,vim,jetbrains,linux,osx,windows
 
 ### Ruby ###
@@ -195,7 +194,7 @@ fabric.properties
 
 # *.iml
 # modules.xml
-# .idea/misc.xml 
+# .idea/misc.xml
 # *.ipr
 
 
@@ -263,3 +262,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

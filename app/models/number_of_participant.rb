@@ -1,0 +1,2 @@
+class NumberOfParticipant < ApplicationRecord
+end
