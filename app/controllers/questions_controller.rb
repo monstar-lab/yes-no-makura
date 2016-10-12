@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -10,6 +10,14 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    if params[:id] == '0' then
+      @question = Question.where("state = 'init'").first
+      @question.state = "open"
+      @question.save
+      redirect_to @question
+      return
+    end
+    @question = Question.find(params[:id])
   end
 
   # GET /questions/new

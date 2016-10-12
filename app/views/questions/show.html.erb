@@ -10,4 +10,4 @@
   <%= @question.state %>
 </p>
 
-<%= link_to "結果表示", :controller => 'question_masters', :action => 'start' %> 
+<%= link_to "結果表示", controller: 'question_masters', action: 'close_questions', id: @question.id %> 
