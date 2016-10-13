@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
+  protect_from_forgery :only => ["close_questions"]
 
   # GET /questions
   # GET /questions.json
@@ -11,7 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     if params[:id] == '0' then
-      @question = Question.where("state = 'init'").first
+      @question = Question.find_by!("state = 'init'")
       @question.state = "open"
       @question.save
       redirect_to @question
@@ -67,6 +68,20 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def result
+  end
+
+  def close_questions
+    @question = Question.find(params[:id])
+    @question.state = "close"
+    if @question.save
+      redirect_to controller: 'questions', action: 'result', id: @question.id
+    else
+      redirect_to ({:action => 'show'}), :alert => 'error'
+    end
+
   end
 
   private

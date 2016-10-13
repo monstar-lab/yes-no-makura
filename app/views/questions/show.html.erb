@@ -10,4 +10,9 @@
   <%= @question.state %>
 </p>
 
-<%= link_to "結果表示", controller: 'question_masters', action: 'close_questions', id: @question.id %> 
+
+
+<%= form_for @question, :url => {:action => 'close_questions'}, :html => { :method => :put } do |f| %>
+<%= submit_tag "結果" %>
+<% end %>
+<%= h(flash[:alert]) %>
