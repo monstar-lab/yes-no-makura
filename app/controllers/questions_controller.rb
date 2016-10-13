@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
-  protect_from_forgery :only => ["close_questions"]
 
   # GET /questions
   # GET /questions.json
@@ -17,11 +16,15 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     if params[:id] == '0' then
-      @question = Question.find_by!("state = 'init'")
+      @question = Question.find_by!(state: 'open')
       @question.state = "open"
-      @question.save
-      redirect_to @question
-      return
+      if @question.save
+        redirect_to @question
+        return
+      else
+        redirect_to ({controller: 'question_masters', action: 'start'}), alert:  'error'
+        return
+      end
     end
     @question = Question.find(params[:id])
   end
@@ -75,13 +78,13 @@ class QuestionsController < ApplicationController
   def result
   end
 
-  def close_questions
+  def close
     @question = Question.find(params[:id])
     @question.state = "close"
     if @question.save
       redirect_to controller: 'questions', action: 'result', id: @question.id
     else
-      redirect_to ({:action => 'show'}), :alert => 'error'
+      redirect_to ({ action: 'show' }), alert: 'error'
     end
 
   end
