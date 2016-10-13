@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -10,6 +10,18 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    if params[:id] == '0' then
+      @question = Question.find_by!(state: 'open')
+      @question.state = "open"
+      if @question.save
+        redirect_to @question
+        return
+      else
+        redirect_to ({controller: 'question_masters', action: 'start'}), alert:  'error'
+        return
+      end
+    end
+    @question = Question.find(params[:id])
   end
 
   # GET /questions/new
@@ -59,6 +71,20 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def result
+  end
+
+  def close
+    @question = Question.find(params[:id])
+    @question.state = "close"
+    if @question.save
+      redirect_to controller: 'questions', action: 'result', id: @question.id
+    else
+      redirect_to ({ action: 'show' }), alert: 'error'
+    end
+
   end
 
   private
