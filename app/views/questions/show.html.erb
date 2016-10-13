@@ -12,7 +12,8 @@
 
 
 
-<%= form_for @question, :url => {:action => 'close_questions'}, :html => { :method => :put } do |f| %>
+<%= form_for @question, :url  => { action: 'close' },
+                        :html => { :method => :put } do |f| %>
 <%= submit_tag "結果" %>
 <% end %>
 <%= h(flash[:alert]) %>

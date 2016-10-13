@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get   'start'  => 'question_masters#start'
   get   'questions/:id' => 'questions#show'
   get   'result/:id' => 'questions#result'
-  put   'questions/close_questions/:id' =>  'questions#close_questions'
+  put   'close_questions/:id' =>  'questions#close'
 
   resources :questions
   resources :number_of_participants
