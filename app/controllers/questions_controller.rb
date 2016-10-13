@@ -8,6 +8,11 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  # GET /questions/new
+  def new
+    @question = Question.new
+  end
+
   # GET /questions/1
   # GET /questions/1.json
   def show
@@ -21,10 +26,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  # GET /questions/new
-  def new
-    @question = Question.new
-  end
+
 
   # GET /questions/1/edit
   def edit
