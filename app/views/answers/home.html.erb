@@ -1,3 +1,8 @@
-<%= button_to "Yes", { action: 'agree' }, data: { confirm: '回答します' }, paramss: {cookie_key: @answer.cookie_key} %>
-<%= button_to "No", { action: 'disagree' }, data: { confirm: '回答します' } %>
+<%= button_to "Yes", { action: 'agree' },
+               data: { confirm: '回答します' },
+               params: {cookie_key: @answer.cookie_key } %>
+<%= @answer.cookie_key %>
+<%= button_to "No", { action: 'disagree' },
+              data: { confirm: '回答します' },
+              params: {cookie_key: @answer.cookie_key } %> 
 <p>質問にお答えください</p>

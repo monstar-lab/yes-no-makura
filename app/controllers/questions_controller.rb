@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     if params[:id] == '0' then
-      @question = Question.find_by!(state: 'open')
+      @question = Question.find_by!(state: 'init')
       @question.state = "open"
       if @question.save
         redirect_to @question
