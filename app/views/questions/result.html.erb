@@ -1,5 +1,16 @@
 <p>
-  結果を発表
+  質問内容
+  <%= @question.body %>
+</p>
+
+<p>
+  yesの数
+  <%= @answers_count %>
+</p>
+
+<p>
+  参加者数
+  <%= @number_of_participant.number %>
 </p>
 
 <%= link_to "次の質問へ", controller: 'questions', action: 'show', id: '0' %>
