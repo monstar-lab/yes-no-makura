@@ -76,7 +76,7 @@ class QuestionsController < ApplicationController
   end
 
   def result
-    @question = Question.find_by!("id = '#{params[:id]}'")
+    @question = Question.find_by!(id: params[:id])
     @answers_count = Answer.where(yes: true).count
     @number_of_participant = NumberOfParticipant.first
   end
