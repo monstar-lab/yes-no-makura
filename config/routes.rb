@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   put   'close_questions/:id'      =>  'questions#close'
   post  'agree'                    =>  'answers#agree'
   post  'disagree'                 =>  'answers#disagree'
+  get   'not_find'                 =>  'questions#not_find'
 
 
   resources :questions
