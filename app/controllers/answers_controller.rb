@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
 
   def agree
     @answer = Answer.find_by!(cookie_key: params[:cookie_key])
-    unless @answer = Question.find_by(state: 'open')
+    unless @answer.question = Question.find_by(state: 'open')
       redirect_to action: 'home', cookie_key: params[:cookie_key]
       return
     else
@@ -22,7 +22,7 @@ class AnswersController < ApplicationController
 
   def disagree
     @answer = Answer.find_by!(cookie_key: params[:cookie_key])
-    unless @answer = Question.find_by(state: 'open')
+    unless @answer.question  = Question.find_by(state: 'open')
       redirect_to action: 'home', cookie_key: params[:cookie_key]
       return
     else
