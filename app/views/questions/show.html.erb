@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @question.state %>
-</p>
+<div class="font center">
+    質問：
+</div>
 
 
+<div class="question_font center">
+    <%= @question.body %>
+</div>
 
-<%= form_for @question, :url  => { action: 'close' },
-                        :html => { :method => :put } do |f| %>
-<%= submit_tag "結果" %>
+
+
+
+
+
+<div class="center">
+<%= form_for @question, url:  { action: 'close' },
+                        html: { :method => :put } do |f| %>
+<%= submit_tag "結果表示", class: "btn btn-primary" %>
 <% end %>
+</div>
 <%= h(flash[:alert]) %>

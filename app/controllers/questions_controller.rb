@@ -7,27 +7,31 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  # GET /questions/new
+  def new
+    @question = Question.new
+  end
+
   # GET /questions/1
   # GET /questions/1.json
   def show
     if params[:id] == '0' then
-      @question = Question.find_by!(state: 'open')
-      @question.state = "open"
-      if @question.save
-        redirect_to @question
+      if Question.where(state: 'init').count == 0
+        redirect_to action: 'not_find'
         return
       else
-        redirect_to ({controller: 'question_masters', action: 'start'}), alert:  'error'
-        return
+        @question = Question.find_by!(state: 'init')
+        @question.state = "open"
+        if @question.save
+          redirect_to @question
+          return
+        end
       end
     end
     @question = Question.find(params[:id])
   end
 
-  # GET /questions/new
-  def new
-    @question = Question.new
-  end
+
 
   # GET /questions/1/edit
   def edit
@@ -74,6 +78,9 @@ class QuestionsController < ApplicationController
   end
 
   def result
+    @question = Question.find_by!(id: params[:id])
+    @answers_count = Answer.where(yes: true).count
+    @number_of_participant = NumberOfParticipant.first
   end
 
   def close
@@ -83,6 +90,9 @@ class QuestionsController < ApplicationController
       redirect_to controller: 'questions', action: 'result', id: @question.id
     else
       redirect_to ({ action: 'show' }), alert: 'error'
+    end
+
+    def not_find
     end
 
   end

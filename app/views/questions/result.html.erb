@@ -1,5 +1,19 @@
-<p>
-  結果を発表
-</p>
-
-<%= link_to "次の質問へ", controller: 'questions', action: 'show', id: '0' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <div class="question_title">
+      質問：<%= @question.body %>
+    </div>
+  </head>
+  <body>
+    <div class="center">
+      <b class="answer_font">
+        <%= @answers_count %>/</b><small class="number_of_participant_font"><%= @number_of_participant.number %>
+      </small>
+    </div>
+    <div class="center">
+      <%= link_to "次の質問へ", controller: 'questions', action: 'show', id: '0'  %>
+    </div>
+  </body>
+</html>
