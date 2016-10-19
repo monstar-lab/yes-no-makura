@@ -17,9 +17,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :state %>
-    <%= f.text_field :state %>
+    <%= select_tag 'question[state]', options_for_select(["init", "open", "close"]) %>
   </div>
+
 
   <div class="actions">
     <%= f.submit %>
