@@ -17,7 +17,8 @@
   </div>
 
   <div class="field">
-    <%= select_tag 'question[state]', options_for_select(["init", "open", "close"]), prompt: @question.state %>
+    <%= select_tag 'question[state]', options_for_select(["init", "open", "close"],
+                                                         selected:  @question.state )  %>
   </div>
 
 
