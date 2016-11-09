@@ -43,6 +43,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     respond_to do |format|
+      @question.state = params[:question][:state]
       if @question.save
         format.html { redirect_to questions_url, notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: @question }
@@ -79,7 +80,7 @@ class QuestionsController < ApplicationController
 
   def result
     @question = Question.find_by!(id: params[:id])
-    @answers_count = Answer.where(yes: true).count
+    @answers_count = Answer.where(question: @question).where(yes: true).count
     @number_of_participant = NumberOfParticipant.first
   end
 
