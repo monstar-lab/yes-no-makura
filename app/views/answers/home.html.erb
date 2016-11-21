@@ -7,14 +7,14 @@
   <body>
      <div class="center">
     <%= button_to "Yes", { action: 'agree' },
-                   data: { confirm: '回答します' },
+                   data: { confirm: '回答します。リロードされれば回答完了しています（回答完了のメッセージはありません）' },
                    params: {cookie_key: @answer.cookie_key },
                    :class => 'yes_no_button' %>
 
     <br>
     <br>
     <%= button_to "No", { action: 'disagree' },
-                  data: { confirm: '回答します' },
+                  data: { confirm: '回答します。リロードされれば回答完了しています（回答完了のメッセージはありません）' },
                   params: {cookie_key: @answer.cookie_key },
                   :class => 'yes_no_button' %>
      <br>
