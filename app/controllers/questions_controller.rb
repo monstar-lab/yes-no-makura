@@ -80,8 +80,9 @@ class QuestionsController < ApplicationController
 
   def result
     @question = Question.find_by!(id: params[:id])
-    @answers_count = Answer.where(question: @question).where(yes: true).count
-    @number_of_participant = NumberOfParticipant.first
+    @yes_count = Answer.where(question: @question).where(yes: true).count
+    # @number_of_participant = NumberOfParticipant.first
+    @answers_count = Answer.where(question: @question).count
   end
 
   def close
