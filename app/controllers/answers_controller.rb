@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
     if params[:cookie_key].blank?
       redirect_to action: 'home', cookie_key: SecureRandom.uuid
     end
+    @cookie_key = params[:cookie_key]
   end
 
   def agree
