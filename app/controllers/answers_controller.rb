@@ -1,10 +1,7 @@
 class AnswersController < ApplicationController
   def home
-    unless @answer = Answer.find_by(cookie_key: params[:cookie_key])
-      @answer = Answer.new
-      @answer.question = Question.first
-      @answer.cookie_key = SecureRandom.uuid
-      @answer.save!
+    if params[:cookie_key].blank?
+      redirect_to action: 'home', cookie_key: SecureRandom.uuid
     end
   end
 
