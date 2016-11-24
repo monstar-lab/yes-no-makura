@@ -6,26 +6,22 @@ class AnswersController < ApplicationController
   end
 
   def agree
-    @answer = Answer.find_by!(cookie_key: params[:cookie_key])
-    unless @answer.question = Question.find_by(state: 'open')
-      redirect_to action: 'home', cookie_key: params[:cookie_key]
-      return
-    else
-      @answer.yes = true
-      @answer.save!
-      redirect_to action: 'home', cookie_key: params[:cookie_key]
-    end
+    reply(true)
   end
 
   def disagree
-    @answer = Answer.find_by!(cookie_key: params[:cookie_key])
-    unless @answer.question  = Question.find_by(state: 'open')
-      redirect_to action: 'home', cookie_key: params[:cookie_key]
-      return
-    else
-      @answer.yes = false
-      @answer.save!
-      redirect_to action: 'home', cookie_key: params[:cookie_key]
+    reply(false)
+  end
+
+  private
+
+  def reply(answer)
+    question = Question.find_by(state: 'open')
+    if question.present?
+      @answer = Answer.find_or_create_by(cookie_key: params[:cookie_key], question_id: question.id)
+      @answer.yes = answer
+      @answer.save
     end
+    redirect_to action: 'home', cookie_key: params[:cookie_key]
   end
 end
