@@ -19,6 +19,7 @@ class AnswersController < ApplicationController
     question = Question.find_by(state: 'open')
     if question.present?
       @answer = Answer.find_or_create_by(cookie_key: params[:cookie_key], question_id: question.id)
+      @answer.cookie_key = params[:cookie_key]
       @answer.yes = answer
       @answer.save
     end
