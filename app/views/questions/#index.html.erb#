@@ -31,8 +31,7 @@
 
 <br>
 
-<%= link_to 'Set the number of participants', new_number_of_participant_path %>
-
-<br><br>
+<%= link_to 'Create member', new_number_of_participant_path %>
+<br>
 
 <%= link_to 'Start', start_path %>
