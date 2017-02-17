@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root                                 'answers#home'
   get   'start'                    =>  'question_masters#start'
   get   'result/:id'               =>  'questions#result'
@@ -12,5 +11,7 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :number_of_participants
+  resources :homes
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
