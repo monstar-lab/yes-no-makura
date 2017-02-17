@@ -30,9 +30,7 @@ class QuestionsController < ApplicationController
     end
     @question = Question.find(params[:id])
   end
-
-
-
+  
   # GET /questions/1/edit
   def edit
   end
