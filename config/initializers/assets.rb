@@ -14,6 +14,7 @@ Rails.application.config.assets.precompile += %w( icomoon.css )
 Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( magnific-popup.css )
 Rails.application.config.assets.precompile += %w( style.css )
+
 Rails.application.config.assets.precompile += %w( modernizr-2.6.2.min.js )
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( jquery.easing.1.3.js )
