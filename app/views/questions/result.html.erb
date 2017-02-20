@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
+  </head>
+  <body>
+    <%= image_tag "logo2.png"%>
     <div class="question_title">
       質問：<%= @question.body %>
     </div>
-  </head>
-  <body>
     <div class="center">
       <b class="answer_font">
         <%= @yes_count %></b><small class="number_of_participant_font">/<%= @answers_count %>
