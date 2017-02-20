@@ -5,20 +5,22 @@
     <title></title>
   </head>
   <body>
-     <div class="center">
+
+<%= image_tag "logo.png"%>
+<!-- <marquee scrollamount="5" height="40" bgcolor="cyan"><font size="5">Produced by Interns at Shimane University</marquee> -->
+<marquee scrollamount="6" height="55" bgcolor="aliceblue" behavior="alternate"><font size="7">質問にお答えください</marquee>
+
+
+  <div class="center">
     <%= button_to "Yes", { action: 'agree' },
                    data: { confirm: 'Yesの回答を送信します。リロードされれば回答完了です（「回答完了しました」などのメッセージは表示されません）' },
                    params: {cookie_key: @cookie_key },
                    :class => 'yes_no_button' %>
 
-    <br>
-    <br>
     <%= button_to "No", { action: 'disagree' },
                   data: { confirm: 'Noの回答を送信します。リロードされれば回答完了です（「回答完了しました」などのメッセージは表示されません）' },
                   params: {cookie_key: @cookie_key },
                   :class => 'yes_no_button' %>
-     <br>
-       <p class="font ">質問にお答えください</p>
 
    </div>
   </body>
