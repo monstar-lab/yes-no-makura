@@ -7,6 +7,7 @@
   <body>
     <%= image_tag "logo.png"%>
      <div class="center">
+    <p class="font">質問にお答えください</p>
     <%= button_to "Yes", { action: 'agree' },
                    data: { confirm: 'Yesの回答を送信します。リロードされれば回答完了です（「回答完了しました」などのメッセージは表示されません）' },
                    params: {cookie_key: @cookie_key },
@@ -18,8 +19,6 @@
                   data: { confirm: 'Noの回答を送信します。リロードされれば回答完了です（「回答完了しました」などのメッセージは表示されません）' },
                   params: {cookie_key: @cookie_key },
                   :class => 'yes_no_button' %>
-     <br>
-       <p class="font ">質問にお答えください</p>
 
    </div>
   </body>
