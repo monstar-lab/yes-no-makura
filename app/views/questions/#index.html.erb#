@@ -3,12 +3,12 @@
 <html>
     <head>
 	<meta charset="utf-8">
+	<!-- A
 	<%= stylesheet_link_tag    'span', media: 'all'%>
 	<%= stylesheet_link_tag    'frame', media: 'all'%>
     </head>
     <body>
-	<center>
-	    <h1><span class="bold">Questions</span></h1>
+	<h1><span class="bold">Questions</span><h1>
 	    <table>
 		<thead>
 		    <tr>
@@ -29,6 +29,5 @@
 		    <% end %>
 		</tbody>
 	    </table>
-	</center>
     </body>
 </html>
