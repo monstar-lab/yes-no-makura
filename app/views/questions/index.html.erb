@@ -1,34 +1,167 @@
-<p id="notice"><%= notice %></p>
-
 <html>
     <head>
-	<meta charset="utf-8">
-	<%= stylesheet_link_tag    'span', media: 'all'%>
+	<meta charset="utf-8">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Animate.css -->
+	<%= stylesheet_link_tag    'animate', media: 'all'%>
+	<!-- Icomoon Icon Fonts-->
+	<%= stylesheet_link_tag    'icomoon', media: 'all'%>
+	<!-- Bootstrap  -->
+	<%= stylesheet_link_tag    'bootstrap', media: 'all'%>
+
+	<!-- Magnific Popup -->
+	<%= stylesheet_link_tag    'magnific-popup', media: 'all'%>
+
+	<!-- Theme style  -->
+	<%= stylesheet_link_tag    'style', media: 'all'%>
+
+	<!-- Fonts -->
+	<%= stylesheet_link_tag    'fonts', media: 'all'%>
+	
+	<!-- Modernizr JS -->
+	<%= javascript_include_tag 'modernizr-2.6.2.min'%>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	    <script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- table -->
 	<%= stylesheet_link_tag    'frame', media: 'all'%>
     </head>
     <body>
-	<center>
-	    <h1><span class="bold">Questions</span></h1>
-	    <table>
-		<thead>
-		    <tr>
-			<th>Body</th>
-			<th>State</th>
-			<th colspan="3">Options</th>
-		    </tr>
-		</thead>
-		<tbody>
-		    <% @questions.each do |question| %>
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	    <nav class="fh5co-nav" role="navigation">
+		<div class="container">
+		    <div class="row">
+			<div class="col-xs-2">
+			    <div id="fh5co-logo"><a href="/homes">MONST☆RLAB</a></div>
+			</div>
+			<div class="col-xs-10 text-right menu-1">
+			    <ul>
+				<a href="/homes">Home</a>
+				<li class="has-dropdown active">
+				    <a href="/questions">Qestion</a>
+				    <ul class="dropdown">
+					<li><a href="/questions">Qestions</a></li>
+					<li><a href="/number_of_participants">Number Of Participants</a></li>
+				    </ul>
+				</li>
+				<li>
+				    <a href="/start">Start</a>
+				</li>
+			    </ul>
+			</div>
+		    </div>
+		    
+		</div>
+	    </nav>
+
+	    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+		    <div class="row">
+			<div class="col-md-10 col-md-offset-1 text-center">
+			    <div class="display-t">
+				<div class="display-tc animate-box" data-animate-effect="fadeIn">
+				    <h1>Questions</h1>
+				    <h2>View Question</h2>
+
+				    <p><a href="/questions/new" class="btn btn-default">New Question</a></p>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </header>
+	    
+	    <p id="notice"><%= notice %></p>
+	    <center>
+		<table>
+		    <thead>
 			<tr>
-			    <td><%= question.body %></td>
-			    <td><%= question.state %></td>
-			    <td><%= link_to 'Show', question %></td>
-			    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-			    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			    <th>Body</th>
+			    <th>State</th>
+			    <th colspan="3">Options</th>
 			</tr>
-		    <% end %>
-		</tbody>
-	    </table>
-	</center>
+		    </thead>
+		    <tbody>
+			<% @questions.each do |question| %>
+			    <tr>
+				<td><%= question.body %></td>
+				<td><%= question.state %></td>
+				<ul class="fh5co-footer-links">
+				    <li><td><%= link_to 'Show', question %></td></li>
+				    <li><td><%= link_to 'Edit', edit_question_path(question) %></td></li>
+				    <li><td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td></li>
+				</ul>
+			    </tr>
+			<% end %>
+		    </tbody>
+		</table>
+	    </center>
+	    
+	    <footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+		    <div class="row row-pb-md">
+			<div class="col-md-4 fh5co-widget">
+			    <h3>MONST☆RLAB-INTERNSHIP</h3>
+			    <p>株式会社モンスター・ラボ　島根開発拠点のインターンシップ生がこのWebアプリケーションを開発しています。</p>
+			</div>
+
+			<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+			    <ul class="fh5co-footer-links">
+				<li><a href="/homes">HOME</a></li>
+				<li><a href="/questions">Questions</a></li>
+				<li><a href="/start">Start</a></li>
+			    </ul>
+			</div>
+			
+			<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+			    <ul class="fh5co-footer-links">
+				<li><a href="/questions/new">New Questions</a></li>
+				<li><a href="/number_of_participants">Number Of Participants</a></li>
+				<li><a href="/number_of_participants/new">Set Number Of Participants</a></li>
+			    </ul>
+			</div>
+			
+			<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+			    <ul class="fh5co-footer-links">
+				<li><a href="https://monstar-lab.com/">MONST☆RLAB</a></li>
+				<li><a href="https://www.facebook.com/corp.monstar.lab/">MONST☆RLAB,Inc.</a></li>
+				<li><a href="https://www.facebook.com/corp.shimane.monstar.lab/">Shimane MONST☆RLAB</a></li>
+			    </ul>
+			</div>
+		    </div>
+		</div>
+	    </footer>
+
+	
+	<!-- jQuery -->
+	<%= javascript_include_tag 'jquery.min.js'%>
+	<!-- jQuery Easing -->
+	<%= javascript_include_tag 'jquery.easing.1.3.js'%>
+	<!-- Bootstrap -->
+	<%= javascript_include_tag 'bootstrap.min'%>
+	<!-- Waypoints -->
+	<%= javascript_include_tag 'jquery.waypoints.min'%>
+	<!-- countTo -->
+	<%= javascript_include_tag 'jquery.countTo'%>
+	<!-- Magnific Popup -->
+	<%= javascript_include_tag 'jquery.magnific-popup.min'%>
+	<%= javascript_include_tag 'magnific-popup-options'%>
+	<!-- Main -->
+	<%= javascript_include_tag 'main'%>
+
+
+	<!-- Magnific Popup -->
+	<%= javascript_include_tag 'jquery.magnific-popup.min'%>
+	<%= javascript_include_tag 'magnific-popup-options'%>
+	<!-- Main -->
+	<%= javascript_include_tag 'main'%>
+	</div>
     </body>
 </html>
