@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   post  'disagree'                 =>  'answers#disagree'
   get   'not_find'                 =>  'questions#not_find'
 
-
   resources :questions
   resources :number_of_participants
-  resources :homes
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
