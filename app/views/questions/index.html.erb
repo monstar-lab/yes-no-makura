@@ -68,7 +68,7 @@
 			    <div class="display-t">
 				<div class="display-tc animate-box" data-animate-effect="fadeIn">
 				    <h1>Questions</h1>
-				    <h2>View Question</h2>
+				    <h2>View Questions</h2>
 
 				    <p><a href="/questions/new" class="btn btn-default">New Question</a></p>
 				</div>
@@ -79,7 +79,8 @@
 	    </header>
 	    
 	    <p id="notice"><%= notice %></p>
-	    <center>
+	    <div>　</div>
+	    <div>　</div>
 		<table>
 		    <thead>
 			<tr>
@@ -93,16 +94,22 @@
 			    <tr>
 				<td><%= question.body %></td>
 				<td><%= question.state %></td>
-				<ul class="fh5co-footer-links">
-				    <li><td><%= link_to 'Show', question %></td></li>
-				    <li><td><%= link_to 'Edit', edit_question_path(question) %></td></li>
-				    <li><td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td></li>
-				</ul>
+				<td>
+				    <%= link_to image_tag('show.png', { :border => '0', :alt => 'Show'}), question %>
+				    <%= link_to 'Show', question %>
+				</td>
+				<td>
+				    <%= link_to image_tag('edit.png', { :border => '0', :alt => 'Edit'}), question %>
+				    <%= link_to 'Edit', edit_question_path(question) %>
+				</td>
+				<td>
+				    <%= link_to image_tag('destroy.png', { :border => '0', :alt => 'Destroy'}), question, method: :delete, data: { confirm: 'Are you sure?' } %>
+				    <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+				</td>
 			    </tr>
 			<% end %>
 		    </tbody>
 		</table>
-	    </center>
 	    
 	    <footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
