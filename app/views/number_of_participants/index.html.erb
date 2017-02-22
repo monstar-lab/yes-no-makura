@@ -15,15 +15,15 @@
 	    <tr>
 		<td><%= number_of_participant.number %></td>
 		<td>
-		    <%= link_to image_tag('show.png', { :border '0', :alt 'Show'}), number_of_participant %>
+		    <%= link_to image_tag('show.png', { border: '0', alt: 'Show'}), number_of_participant %>
 		    <%= link_to 'Show', number_of_participant %>
 		</td>
 		<td>
-		    <%= link_to image_tag('edit.png', { :border '0', :alt 'Edit'}), edit_number_of_participant_path(number_of_participant) %>
+		    <%= link_to image_tag('edit.png', { border: '0', alt: 'Edit'}), edit_number_of_participant_path(number_of_participant) %>
 		    <%= link_to 'Edit', edit_number_of_participant_path(number_of_participant) %>
 		</td>
 		<td>
-		    <%= link_to image_tag('destroy.png', { :border '0', :alt 'Destroy'}), number_of_participant, method: :delete, data: { confirm: 'Are you sure?' } %>
+		    <%= link_to image_tag('destroy.png', { border: '0', alt: 'Destroy'}), number_of_participant, method: :delete, data: { confirm: 'Are you sure?' } %>
 		    <%= link_to 'Destroy', number_of_participant, method: :delete, data: { confirm: 'Are you sure?' } %>
 		</td>
 	    </tr>

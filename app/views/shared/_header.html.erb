@@ -64,11 +64,12 @@
 			<div class="col-md-10 col-md-offset-1 text-center">
 			    <div class="display-t">
 				<div class="display-tc animate-box" data-animate-effect="fadeIn">
-				    <% if menu == "Questions"%>
+				    <% case menu %>
+				    <% when "Questions" %>
 					<h1>Questions</h1>
 					<h2>View Questions</h2>
 					<p><a href="/questions/new" class="btn btn-default">New Question</a></p>
-				    <% elsif menu == "Number"%>
+				    <% when "Number"%>
 					<h1>Number Of Participants</h1>
 					<h2>Number Restriction</h2>
 					<p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
