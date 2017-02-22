@@ -17,7 +17,7 @@
 		<td><%= question.body %></td>
 		<td><%= question.state %></td>
 		<td>
-		    <%= link_to image_tag('show.png', { border: '0', alt: 'Show'}), question %>
+		    <%= link_to image_tag('show.png', { border: '0', alt: 'Show'}), "/admin/questions/#{question.id }" %>
 		    <%= link_to 'Show', "/admin/questions/#{question.id }" %>
 		</td>
 		<td>
