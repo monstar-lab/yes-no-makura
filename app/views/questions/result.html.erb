@@ -14,13 +14,13 @@
         <%= @yes_count %></b><small class="number_of_participant_font">/<%= @answers_count %>
       </small>
     </div>
-    <%= javascript_tag do %>
-    yes_count = <%= raw @yes_count %>;
-    answers_count = <%= raw @answers_count %>;
-    <% end %>
     <div class="center">
       <%= link_to "次の質問へ", controller: 'questions', action: 'show', id: '0'  %>
     </div>
+    <%= javascript_tag do %>
+      yes_count = <%= raw @yes_count %>;
+      answers_count = <%= raw @answers_count %>;
+    <% end %>
     <script>
       var max=answers_count,max_h,max_q,max_e;
       var min=0,min_h,min_q,min_e;
