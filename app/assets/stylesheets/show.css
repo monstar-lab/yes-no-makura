@@ -8,3 +8,9 @@ span.xx16-large {font-size: 100px;  color: #fff;}
     margin-left: -70px;
     margin-right: -70px;
 }
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
