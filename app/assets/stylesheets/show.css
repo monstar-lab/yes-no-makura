@@ -1,6 +1,10 @@
 span.x-large {font-size: 60px;  color: #fff;}
 span.xx-large {font-size: 120px;  color: #fff;}
-span.x2-large {font-size: 90px;  color: #fff;}
+span.xx18-large {font-size: 100px;  color: #fff;}
 .fh5co-cover .display-t,.fh5co-cover .display-tc {
     height: 650px;
+}
+.row {
+    margin-left: -70px;
+    margin-right: -70px;
 }
