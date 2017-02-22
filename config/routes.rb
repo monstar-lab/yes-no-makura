@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root                                 'answers#home'
   get   'start'                    =>  'question_masters#start'
   get   'result/:id'               =>  'questions#result'
+  get   'admin/questions/:id'      =>  'questions#admin_show'
   put   'close_questions/:id'      =>  'questions#close'
   post  'agree'                    =>  'answers#agree'
   post  'disagree'                 =>  'answers#disagree'

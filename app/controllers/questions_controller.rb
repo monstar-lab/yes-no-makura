@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:edit, :update, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy, :admin_show]
 
   # GET /questions
   # GET /questions.json
   def index
     @questions = Question.all
+	p @questions
   end
 
   # GET /questions/new
@@ -29,6 +30,9 @@ class QuestionsController < ApplicationController
       end
     end
     @question = Question.find(params[:id])
+  end
+
+  def admin_show
   end
   
   # GET /questions/1/edit
