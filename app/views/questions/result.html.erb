@@ -25,6 +25,7 @@
       var max=answers_count,max_h,max_q,max_e;
       var min=0,min_h,min_q,min_e;
       var speed=100;
+      var cnt=0;
       var ran,ran_b=0;
       function change_number(){
         ran = Math.round(min+(Math.random()*(max-min)));
@@ -40,6 +41,11 @@
       $(function(){
           var setTimer = setInterval(function(){
           change_number();
+          else if(cnt>=80){
+            clearInterval(setTimer);
+            document.getElementsByTagName("b")[0].firstChild.nodeValue = yes_count;
+          }
+          cnt++;
         },speed);
        });
     </script>
