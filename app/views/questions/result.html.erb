@@ -53,19 +53,19 @@
       $(function () {
         var setTimer = setInterval(function () {
           changenumber();
-          if (cnt >= 25 && cnt < 50) {
+          if (cnt >= 5 && cnt < 15) {
             speed = 200;
             max = maxhalf;
             min = minhalf;
-          } else if (cnt >= 50 && cnt < 65) {
-            speed = 500;
+          } else if (cnt >= 15 && cnt < 25) {
+            speed = 400;
             max = maxquad;
             min = minquad;
-          } else if (cnt >= 65 && cnt < 80) {
-            speed = 1000;
+          } else if (cnt >= 25 && cnt < 40) {
+            speed = 800;
             max = maxend;
             min = minend;
-          } else if (cnt >= 80) {
+          } else if (cnt >= 40) {
             clearInterval(setTimer);
             document.getElementsByTagName('b')[0].firstChild.nodeValue = yesCount;
           }
