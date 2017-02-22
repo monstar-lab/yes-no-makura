@@ -18,8 +18,8 @@
     <!-- Fonts -->
     <%= stylesheet_link_tag    'fonts'%>
 
-    <!-- Font-size -->
-    <%= stylesheet_link_tag    'font-size'%>
+    <!-- show -->
+    <%= stylesheet_link_tag    'show'%>
     
     <!-- Modernizr JS -->
     <%= javascript_include_tag 'modernizr-2.6.2.min'%>
@@ -36,7 +36,6 @@
     <div class="fh5co-loader"></div>
     
     <div id="page">
-    <p id="notice"><%= notice %></p>
 	<nav class="fh5co-nav" role="navigation">
 	    <div class="container">
 		<div class="row">
@@ -54,6 +53,7 @@
 		    <div class="col-md-10 col-md-offset-1 text-center">
 			<div class="display-t">
 			    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+				<p id="notice"><%= notice %></p>
 				<span class="x-large"> 質問：</span>
 				<span class="xx-large"><%= @question.body %></span>
 				<p><%= form_for @question, url:  { action: 'close' },

@@ -1,16 +1,5 @@
-span.12em {font-size: 12em; }
-span.12ex {font-size: 12ex; }
-span.80p {font-size: 80%; }
-span.100p {font-size: 100%; }
-span.120p {font-size: 120%; }
-span.xx-small {font-size: xx-small; }
-span.x-small {font-size: x-small; }
-span.small {font-size: small; }
-span.medium {font-size: medium; }
-span.large {font-size: large; }
-span.x-large {font-size: 60px; }
-span.xx-large {font-size: 120px; }
-  .fh5co-cover .display-t,
-  .fh5co-cover .display-tc {
+span.x-large {font-size: 60px;  color: #fff;}
+span.xx-large {font-size: 120px;  color: #fff;}
+.fh5co-cover .display-t,.fh5co-cover .display-tc {
     height: 600px;
-  }
+}
