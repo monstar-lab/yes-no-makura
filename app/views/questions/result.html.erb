@@ -24,6 +24,7 @@
     <script>
       var max=answers_count,max_h,max_q,max_e;
       var min=0,min_h,min_q,min_e;
+      var speed=100;
       var ran,ran_b=0;
       function change_number(){
         ran = Math.round(min+(Math.random()*(max-min)));
@@ -36,6 +37,11 @@
         document.getElementsByTagName("b")[0].firstChild.nodeValue = ran;
         ran_b=ran;
       }
+      $(function(){
+          var setTimer = setInterval(function(){
+          change_number();
+        },speed);
+       });
     </script>
   </body>
 </html>
