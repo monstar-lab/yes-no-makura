@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get    'result/:id'               =>  'questions#result'
   get    'admin/questions/:id'      =>  'questions#admin_show'
   delete 'destroy/questions'        =>  'questions#all_destroy'
-  get    'init/questions'        =>  'questions#all_init'
+  get    'init/questions'           =>  'questions#all_init'
   put    'close_questions/:id'      =>  'questions#close'
   post   'agree'                    =>  'answers#agree'
   post   'disagree'                 =>  'answers#disagree'
