@@ -18,57 +18,60 @@
       <%= link_to "次の質問へ", controller: 'questions', action: 'show', id: '0'  %>
     </div>
     <%= javascript_tag do %>
-      yes_count = <%= raw @yes_count %>;
-      answers_count = <%= raw @answers_count %>;
+      yesCount = <%= raw @yes_count %>;
+      answersCount = <%= raw @answers_count %>;
     <% end %>
     <script>
-      var max=answers_count,max_h,max_q,max_e;
-      var min=0,min_h,min_q,min_e;
-      var speed=100;
-      var cnt=0;
-      var ran,ran_b=0;
-      function change_number(){
-        ran = Math.round(min+(Math.random()*(max-min)));
-        if((ran==ran_b)&&(ran!=0)){
+      var max = answersCount;
+      var maxhalf;
+      var maxquad;
+      var maxend;
+      var min = 0;
+      var minhalf;
+      var minquad;
+      var minend;
+      var speed = 100;
+      var cnt = 0;
+      var ran;
+      var ranbefore = 0;
+      function changenumber () {
+        ran = Math.round(min + (Math.random() * (max - min)));
+        if ((ran === ranbefore) && (ran !== 0)) {
           ran--;
+        } else if ((ran === ranbefore) && (ran === 0)) {
+          ran = 1;
         }
-        else if((ran==ran_b)&&(ran==0)){
-          ran=1;
-        }
-        document.getElementsByTagName("b")[0].firstChild.nodeValue = ran;
-        ran_b=ran;
+        document.getElementsByTagName('b')[0].firstChild.nodeValue = ran;
+        ranbefore = ran;
       }
-      min_h = yes_count/2;
-      max_h = answers_count/2+min_h;
-      min_q = 3*(yes_count/4);
-      max_q = answers_count/4+min_q;
-      min_e = 7*(yes_count/8);
-      max_e = answers_count/8+min_e;
-      $(function(){
-          var setTimer = setInterval(function(){
-          change_number();
-          if(cnt>=25 && cnt<50){
-            speed=200;
-            max=max_h;
-            min=min_h;
-          }
-          else if(cnt>=50 && cnt<65){
-            speed=500;
-            max=max_q;
-            min=min_q;
-          }
-          else if(cnt>=65 && cnt<80){
-            speed=1000;
-            max=max_e;
-            min=min_e;
-          }
-          else if(cnt>=80){
+      minhalf = yesCount / 2;
+      maxhalf = answersCount / 2 + minhalf;
+      minquad = 3 * (yesCount / 4);
+      maxquad = answersCount / 4 + minquad;
+      minend = 7 * (yesCount / 8);
+      maxend = answersCount / 8 + minend;
+      $(function () {
+        var setTimer = setInterval(function () {
+          changenumber();
+          if (cnt >= 25 && cnt < 50) {
+            speed = 200;
+            max = maxhalf;
+            min = minhalf;
+          } else if (cnt >= 50 && cnt < 65) {
+            speed = 500;
+            max = maxquad;
+            min = minquad;
+          } else if (cnt >= 65 && cnt < 80) {
+            speed = 1000;
+            max = maxend;
+            min = minend;
+          } else if (cnt >= 80) {
             clearInterval(setTimer);
-            document.getElementsByTagName("b")[0].firstChild.nodeValue = yes_count;
+            document.getElementsByTagName('b')[0].firstChild.nodeValue = yesCount;
           }
           cnt++;
-        },speed);
-       });
+        }, speed);
+      });
     </script>
   </body>
 </html>
