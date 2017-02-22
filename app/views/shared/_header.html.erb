@@ -1,82 +1,90 @@
-    <head>
-	<meta charset="utf-8">	
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Theme style  -->
-	<%= stylesheet_link_tag    'style'%>
-	<!-- Animate.css -->
-	<%= stylesheet_link_tag    'animate'%>
-	<!-- Icomoon Icon Fonts-->
-	<%= stylesheet_link_tag    'icomoon'%>
-	<!-- Bootstrap  -->
-	<%= stylesheet_link_tag    'bootstrap'%>
+    <!-- Theme style  -->
+    <%= stylesheet_link_tag    'style'%>
+    <!-- Animate.css -->
+    <%= stylesheet_link_tag    'animate'%>
+    <!-- Icomoon Icon Fonts-->
+    <%= stylesheet_link_tag    'icomoon'%>
+    <!-- Bootstrap  -->
+    <%= stylesheet_link_tag    'bootstrap'%>
 
-	<!-- Magnific Popup -->
-	<%= stylesheet_link_tag    'magnific-popup'%>
+    <!-- Magnific Popup -->
+    <%= stylesheet_link_tag    'magnific-popup'%>
 
-	<!-- Fonts -->
-	<%= stylesheet_link_tag    'fonts'%>
-	
-	<!-- Modernizr JS -->
-	<%= javascript_include_tag 'modernizr-2.6.2.min'%>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	    <script src="js/respond.min.js"></script>
-	<![endif]-->
+    <!-- Fonts -->
+    <%= stylesheet_link_tag    'fonts'%>
 
-	<!-- table -->
-	<%= stylesheet_link_tag    'frame'%>
-    </head>
-    <body>
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
-	    <nav class="fh5co-nav" role="navigation">
-		<div class="container">
-		    <div class="row">
-			<div class="col-xs-2">
-			    <div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
-			</div>
-			<div class="col-xs-10 text-right menu-1">
-			    <ul>
-				<a href="/home.html">HOME</a>
-				<li class="has-dropdown active">
-				    <a href="/questions">Qestion</a>
-				    <ul class="dropdown">
-					<li><a href="/questions">Qestions</a></li>
-					<li><a href="/number_of_participants">Number Of Participants</a></li>
-				    </ul>
-				</li>
-				<li>
-				    <a href="/start">Start</a>
-				</li>
-			    </ul>
-			</div>
+    <!-- show -->
+    <%= stylesheet_link_tag    'show'%>
+    
+    <!-- Modernizr JS -->
+    <%= javascript_include_tag 'modernizr-2.6.2.min'%>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- table -->
+    <%= stylesheet_link_tag    'frame'%>
+</head>
+<body>
+    <div class="fh5co-loader"></div>
+    
+    <div id="page">
+	<nav class="fh5co-nav" role="navigation">
+	    <div class="container">
+		<div class="row">
+		    <div class="col-xs-2">
+			<div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
+		    </div>
+		    <div class="col-xs-10 text-right menu-1">
+			<ul>
+			    <a href="/home.html">HOME</a>
+			    <li class="has-dropdown active">
+				<a href="/questions">Qestion</a>
+				<ul class="dropdown">
+				    <li><a href="/questions">Qestions</a></li>
+				    <li><a href="/number_of_participants">Number Of Participants</a></li>
+				</ul>
+			    </li>
+			    <li>
+				<a href="/start">Start</a>
+			    </li>
+			</ul>
 		    </div>
 		</div>
-	    </nav>
-	    
-	    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-		    <div class="row">
-			<div class="col-md-10 col-md-offset-1 text-center">
-			    <div class="display-t">
-				<div class="display-tc animate-box" data-animate-effect="fadeIn">
-				    <% case menu %>
-				    <% when "Questions" %>
-					<h1>Questions</h1>
-					<h2>View Questions</h2>
-					<p><a href="/questions/new" class="btn btn-default">New Question</a></p>
-				    <% when "Number"%>
-					<h1>Number Of Participants</h1>
-					<h2>Number Restriction</h2>
-					<p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
-				    <% end %>
-				</div>
+	    </div>
+	</nav>
+	
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+	    <div class="overlay"></div>
+	    <div class="container">
+		<div class="row">
+		    <div class="col-md-10 col-md-offset-1 text-center">
+			<div class="display-t">
+			    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+				<% case menu %>
+				<% when "Questions" %>
+				    <h1>Questions</h1>
+				    <h2>View Questions</h2>
+				    <p><a href="/questions/new" class="btn btn-default">New Question</a></p>
+				<% when "Number"%>
+				    <h1>Number Of Participants</h1>
+				    <h2>Number Restriction</h2>
+				    <p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
+				<% when "admin_show" %>
+				    <p id="notice"><%= notice %></p>
+				    <span class="x-large"> 質問：</span>
+				    <span class="xx-large"><%= @question.body %></span>
+				    <br><%= submit_tag "結果表示", class: "btn btn-primary" %>
+				<% end %>
 			    </div>
 			</div>
 		    </div>
 		</div>
-	    </header>
+	    </div>
+	</header>
