@@ -76,6 +76,17 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def all_destroy
+    @questions = Question.all
+    @questions.each do |question|
+      question.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
   def result
     @question = Question.find_by!(id: params[:id])
     @yes_count = Answer.where(question: @question).where(yes: true).count
