@@ -1,23 +1,50 @@
-<p id="notice"><%= notice %></p>
-
-<div class="font center">
-    質問：
-</div>
-
-
-<div class="question_font center">
-    <%= @question.body %>
-</div>
-
-
-
-
-
-
-<div class="center">
-<%= form_for @question, url:  { action: 'close' },
-                        html: { :method => :put } do |f| %>
-<%= submit_tag "結果表示", class: "btn btn-primary" %>
-<% end %>
-</div>
-<%= h(flash[:alert]) %>
+    <div class="fh5co-loader"></div>
+    
+    <div id="page">
+	<nav class="fh5co-nav" role="navigation">
+	    <div class="container">
+		<div class="row">
+		    <div class="col-xs-2">
+			<div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
+		    </div>
+		</div>
+	    </div>
+	</nav>
+	
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+	    <div class="overlay"></div>
+	    <div class="container">
+		<div class="row">
+		    <div class="col-md-10 col-md-offset-1 text-center">
+			<div class="display-t">
+			    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+				<p id="notice"><%= notice %></p>
+				<span class="x-large"> 質問：</span>
+				<span class="xx-large"><%= @question.body %></span>
+				<p><%= form_for @question, url:  { action: 'close' },
+				    html: { :method => :put } do |f| %>
+				    <%= submit_tag "結果表示", class: "btn btn-primary" %>
+				<% end %></p>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	</header>
+    </div>
+    
+<!-- jQuery -->
+<%= javascript_include_tag 'jquery.min.js'%>
+<!-- jQuery Easing -->
+<%= javascript_include_tag 'jquery.easing.1.3.js'%>
+<!-- Bootstrap -->
+<%= javascript_include_tag 'bootstrap.min'%>
+<!-- Waypoints -->
+<%= javascript_include_tag 'jquery.waypoints.min'%>
+<!-- countTo -->
+<%= javascript_include_tag 'jquery.countTo'%>
+<!-- Magnific Popup -->
+<%= javascript_include_tag 'jquery.magnific-popup.min'%>
+<%= javascript_include_tag 'magnific-popup-options'%>
+<!-- Main -->
+<%= javascript_include_tag 'main'%>
