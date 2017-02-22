@@ -38,9 +38,30 @@
         document.getElementsByTagName("b")[0].firstChild.nodeValue = ran;
         ran_b=ran;
       }
+      min_h = yes_count/2;
+      max_h = answers_count/2+min_h;
+      min_q = 3*(yes_count/4);
+      max_q = answers_count/4+min_q;
+      min_e = 7*(yes_count/8);
+      max_e = answers_count/8+min_e;
       $(function(){
           var setTimer = setInterval(function(){
           change_number();
+          if(cnt>=25 && cnt<50){
+            speed=200;
+            max=max_h;
+            min=min_h;
+          }
+          else if(cnt>=50 && cnt<65){
+            speed=500;
+            max=max_q;
+            min=min_q;
+          }
+          else if(cnt>=65 && cnt<80){
+            speed=1000;
+            max=max_e;
+            min=min_e;
+          }
           else if(cnt>=80){
             clearInterval(setTimer);
             document.getElementsByTagName("b")[0].firstChild.nodeValue = yes_count;
