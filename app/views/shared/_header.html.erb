@@ -44,7 +44,7 @@
 				<p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
 			    <% when "admin_show" %>
 				<p id="notice"><%= notice %></p>
-				<span class="x-large"> 質問：</span>
+				<span class="x-large"> Q：</span>
 				<% if @question.body.length < 16 %>
 				    <span class="xx-large"><%= @question.body %></span>
 				<% else %>
@@ -52,6 +52,9 @@
 				<% end %>
 				
 				<br><%= submit_tag "結果表示", class: "btn btn-primary" %>
+			    <% when "number_show" %>
+				<span class="x-large"> Number：</span>
+				<span class="xx-large"><%= @number_of_participant.number %></span>
 			    <% end %>
 			</div>
 		    </div>
