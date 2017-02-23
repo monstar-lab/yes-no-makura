@@ -80,9 +80,7 @@ class QuestionsController < ApplicationController
   end
 
   def all_destroy
-    @questions.each do |question|
-      question.destroy
-    end
+    @questions.destroy_all
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
@@ -98,8 +96,7 @@ class QuestionsController < ApplicationController
 
   def all_init
     @questions.each do |question|
-      question.state = "init"
-      @save = question.save
+      question.update!(state: 'init')
     end
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully update.' }
