@@ -22,7 +22,7 @@
 				<span class="x-large"> 質問：</span>
 				<span class="xx-large"><%= @question.body %></span>
 				<p><%= form_for @question, url:  { action: 'close' },
-				    html: { :method => :put } do |f| %>
+				    html: { method: :put } do |f| %>
 				    <%= submit_tag "結果表示", class: "btn btn-primary" %>
 				<% end %></p>
 			    </div>
