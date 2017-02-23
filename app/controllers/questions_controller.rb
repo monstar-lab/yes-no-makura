@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:edit, :update, :destroy, :close, :admin_show]
+  before_action :set_question, only: [:edit, :update, :destroy, :close]
   before_action :set_questions, only: [:index, :all_destroy, :all_init]
 
   # GET /questions
@@ -32,6 +32,10 @@ class QuestionsController < ApplicationController
   end
 
   def admin_show
+    @question = Question.find_by!(id: params[:id])
+    @yes_count = Answer.where(question: @question).where(yes: true).count
+    # @number_of_participant = NumberOfParticipant.first
+    @answers_count = Answer.where(question: @question).count
   end
   
   # GET /questions/1/edit
