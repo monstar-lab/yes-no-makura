@@ -10,19 +10,29 @@
 		<div class="row_home">
 	    <% end %>
 		<div class="col-xs-2">
-		    <div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
+		    <div id="fh5co-logo"><a href="/homes">MONST☆RLAB</a></div>
 		</div>
 		<div class="col-xs-10 text-right menu-1">
 		    <ul>
+	              <% case menu %>
+		      <% when "Homes" %>
+			<li class="active">
+	              <% else %>
 			<li>
-			    <a href="/home.html">HOME</a>
+		      <% end %>
+			  <a href="/homes">HOME</a>
 			</li>
+		      <% case menu %>
+		      <% when "Homes" %>
+			<li class="has-dropdown">
+	              <% else %>
 			<li class="has-dropdown active">
-			    <a href="/questions">Qestion</a>
-			    <ul class="dropdown">
-				<li><a href="/questions">Qestions</a></li>
-				<li><a href="/number_of_participants">Number Of Participants</a></li>
-			    </ul>
+		      <% end %>
+			   <a href="/questions">Qestion</a>
+			 <ul class="dropdown">
+		            <li><a href="/questions">Qestions</a></li>
+			    <li><a href="/number_of_participants">Number Of Participants</a></li>
+			 </ul>
 			</li>
 			<li>
 			    <a href="/start">Start</a>
@@ -46,6 +56,12 @@
 		    <div class="display-t">
 			<div class="display-tc animate-box" data-animate-effect="fadeIn">
 			    <% case menu %>
+			    <% when "Homes" %>
+				<h1>yes-no-makura</h1>
+				<h2>Questionnaire System</h2>
+
+				<p><a href="/questions" class="btn btn-default">Questions</a></p>
+				<p><a href="/start" class="btn btn-default">Start</a></p>
 			    <% when "Questions" %>
 				<h1>Questions</h1>
 				<h2>View Questions</h2>
