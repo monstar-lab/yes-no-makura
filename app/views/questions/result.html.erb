@@ -53,7 +53,7 @@
           min = (yesCount / shuffleNumber) * cnt;
           if (cnt >= shuffleNumber) {
             clearInterval(setTimer);
-            document.getElementsByTagName('b')[0].firstChild.nodeValue = yesCount;
+            changeNumber(yesCount);
           }
           ranBef = number;
           cnt++;
