@@ -30,10 +30,8 @@
       var ranBef = 0;
       function makeRandom (maxNumber, minNumber, randomBefore) {
         var random = Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
-        if ((random === randomBefore) && (random !== 0)) {
-          random--;
-        } else if ((random === randomBefore) && (random === 0)) {
-          random = 1;
+        while (random === randomBefore) {
+          random = Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));          
         }
         randomBefore = random;
         return random;
