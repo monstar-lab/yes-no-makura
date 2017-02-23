@@ -17,6 +17,7 @@ Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( fonts.css )
 Rails.application.config.assets.precompile += %w( span.css )
 Rails.application.config.assets.precompile += %w( frame.css )
+Rails.application.config.assets.precompile += %w( priority.css )
 
 Rails.application.config.assets.precompile += %w( modernizr-2.6.2.min.js )
 Rails.application.config.assets.precompile += %w( jquery.min.js )
