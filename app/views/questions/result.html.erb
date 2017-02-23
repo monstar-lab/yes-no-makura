@@ -28,16 +28,24 @@
       var waitTime = 125;
       var cnt = 0;
       var ranBef = 0;
+      function randomNumber (maxNumber, minNumber) {
+        var ran = Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
+        return ran;
+      }
       function makeRandom (maxNumber, minNumber, randomBefore) {
-        var random = Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
+        var random = randomNumber(maxNumber, minNumber);
         while (random === randomBefore) {
-          random = Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));          
+          random = randomNumber(maxNumber, minNumber);
+          if ((maxNumber - minNumber) < 1) {
+            random = randomBefore;
+            break;
+          }
         }
         randomBefore = random;
         return random;
       }
       function changeNumber (number) {
-        document.getElementsByTagName('b')[0].firstChild.nodeValue = number;        
+        document.getElementsByTagName('b')[0].firstChild.nodeValue = number;
       }
       $(function () {
         var setTimer = setInterval(function () {
