@@ -29,19 +29,22 @@
       var cnt = 0;
       var random;
       var randomBefore = 0;
-      function changeNumber () {
+      function makeRandom () {
         random = Math.round(min + (Math.random() * (max - min)));
         if ((random === randomBefore) && (random !== 0)) {
           random--;
         } else if ((random === randomBefore) && (random === 0)) {
           random = 1;
         }
-        document.getElementsByTagName('b')[0].firstChild.nodeValue = random;
+        changeNumber(random);
         randomBefore = random;
+      }
+      function changeNumber (random) {
+        document.getElementsByTagName('b')[0].firstChild.nodeValue = random;        
       }
       $(function () {
         var setTimer = setInterval(function () {
-          changeNumber();
+          makeRandom();
           max = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
           min = (yesCount / shuffleNumber) * cnt;
           if (cnt >= shuffleNumber) {
