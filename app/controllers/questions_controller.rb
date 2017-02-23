@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:edit, :update, :destroy, :admin_show]
+  before_action :set_question, only: [:edit, :update, :destroy, :close, :admin_show]
+  before_action :set_questions, only: [:index, :all_destroy, :all_init]
 
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
   end
 
   # GET /questions/new
@@ -79,6 +79,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def all_destroy
+    @questions.destroy_all
+    respond_to do |format|
+      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
   def result
     @question = Question.find_by!(id: params[:id])
     @yes_count = Answer.where(question: @question).where(yes: true).count
@@ -86,22 +94,37 @@ class QuestionsController < ApplicationController
     @answers_count = Answer.where(question: @question).count
   end
 
+  def all_init
+    @questions.each do |question|
+      question.update!(state: 'init')
+    end
+    respond_to do |format|
+      format.html { redirect_to questions_url, notice: 'Question was successfully update.' }
+      format.json { head :no_content }
+    end
+  end
+
   def close
-    @question = Question.find(params[:id])
     @question.state = "close"
     if @question.save
       redirect_to controller: 'questions', action: 'result', id: @question.id
     else
       redirect_to ({ action: 'show' }), alert: 'error'
     end
+  end
 
-    def not_find
-    end
+  def not_find
+  end
 
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def set_questions
+      @questions = Question.all
+    end
+    
     def set_question
       @question = Question.find(params[:id])
     end
@@ -110,4 +133,3 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:body, :state)
     end
-end

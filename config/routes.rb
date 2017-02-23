@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
   root                                 'answers#home'
-  get   'start'                    =>  'question_masters#start'
-  get   'result/:id'               =>  'questions#result'
-  get   'admin/questions/:id'      =>  'questions#admin_show'
-  put   'close_questions/:id'      =>  'questions#close'
-  post  'agree'                    =>  'answers#agree'
-  post  'disagree'                 =>  'answers#disagree'
-  get   'not_find'                 =>  'questions#not_find'
+  get    'start'                    =>  'question_masters#start'
+  get    'result/:id'               =>  'questions#result'
+  delete 'destroy/questions'        =>  'questions#all_destroy'
+  get    'init/questions'           =>  'questions#all_init'
+  get    'admin/questions/:id'      =>  'questions#admin_show'
+  put    'close_questions/:id'      =>  'questions#close'
+  post   'agree'                    =>  'answers#agree'
+  post   'disagree'                 =>  'answers#disagree'
+  get    'not_find'                 =>  'questions#not_find'
 
   resources :questions
   resources :number_of_participants
