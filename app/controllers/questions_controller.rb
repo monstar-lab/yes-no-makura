@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:edit, :update, :destroy, :close]
+  before_action :set_question, only: [:edit, :update, :destroy, :close, :admin_show]
   before_action :set_questions, only: [:index, :all_destroy, :all_init]
 
   # GET /questions
@@ -29,6 +29,9 @@ class QuestionsController < ApplicationController
       end
     end
     @question = Question.find(params[:id])
+  end
+
+  def admin_show
   end
   
   # GET /questions/1/edit
