@@ -23,48 +23,42 @@
     <% end %>
     <script>
       var max = answersCount;
-      var maxhalf;
-      var maxquad;
-      var maxend;
       var min = 0;
-      var minhalf;
-      var minquad;
-      var minend;
       var speed = 100;
       var cnt = 0;
-      var ran;
-      var ranbefore = 0;
-      function changenumber () {
-        ran = Math.round(min + (Math.random() * (max - min)));
-        if ((ran === ranbefore) && (ran !== 0)) {
-          ran--;
-        } else if ((ran === ranbefore) && (ran === 0)) {
-          ran = 1;
+      var random;
+      var randomBefore = 0;
+      function changeNumber () {
+        random = Math.round(min + (Math.random() * (max - min)));
+        if ((random === randomBefore) && (random !== 0)) {
+          random--;
+        } else if ((random === randomBefore) && (random === 0)) {
+          random = 1;
         }
-        document.getElementsByTagName('b')[0].firstChild.nodeValue = ran;
-        ranbefore = ran;
+        document.getElementsByTagName('b')[0].firstChild.nodeValue = random;
+        randomBefore = random;
       }
-      minhalf = yesCount / 2;
-      maxhalf = answersCount / 2 + minhalf;
-      minquad = 3 * (yesCount / 4);
-      maxquad = answersCount / 4 + minquad;
-      minend = 7 * (yesCount / 8);
-      maxend = answersCount / 8 + minend;
+      var minHalf = yesCount / 2;
+      var maxHalf = answersCount / 2 + minHalf;
+      var minQuad = 3 * (yesCount / 4);
+      var maxQuad = answersCount / 4 + minQuad;
+      var minEnd = 7 * (yesCount / 8);
+      var maxEnd = answersCount / 8 + minEnd;
       $(function () {
         var setTimer = setInterval(function () {
-          changenumber();
+          changeNumber();
           if (cnt >= 5 && cnt < 15) {
             speed = 200;
-            max = maxhalf;
-            min = minhalf;
+            max = maxHalf;
+            min = minHalf;
           } else if (cnt >= 15 && cnt < 25) {
             speed = 400;
-            max = maxquad;
-            min = minquad;
+            max = maxQuad;
+            min = minQuad;
           } else if (cnt >= 25 && cnt < 40) {
             speed = 800;
-            max = maxend;
-            min = minend;
+            max = maxEnd;
+            min = minEnd;
           } else if (cnt >= 40) {
             clearInterval(setTimer);
             document.getElementsByTagName('b')[0].firstChild.nodeValue = yesCount;
