@@ -27,30 +27,31 @@
       var min = 0;
       var waitTime = 125;
       var cnt = 0;
-      var random;
-      var randomBefore = 0;
-      function makeRandom () {
-        random = Math.round(min + (Math.random() * (max - min)));
+      var ranBef = 0;
+      function makeRandom (maxNumber, minNumber, randomBefore) {
+        var random = Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
         if ((random === randomBefore) && (random !== 0)) {
           random--;
         } else if ((random === randomBefore) && (random === 0)) {
           random = 1;
         }
-        changeNumber(random);
         randomBefore = random;
+        return random;
       }
-      function changeNumber (random) {
-        document.getElementsByTagName('b')[0].firstChild.nodeValue = random;        
+      function changeNumber (number) {
+        document.getElementsByTagName('b')[0].firstChild.nodeValue = number;        
       }
       $(function () {
         var setTimer = setInterval(function () {
-          makeRandom();
+          var number = makeRandom(max, min, ranBef);
+          changeNumber(number);
           max = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
           min = (yesCount / shuffleNumber) * cnt;
           if (cnt >= shuffleNumber) {
             clearInterval(setTimer);
             document.getElementsByTagName('b')[0].firstChild.nodeValue = yesCount;
           }
+          ranBef = number;
           cnt++;
         }, waitTime);
       });
