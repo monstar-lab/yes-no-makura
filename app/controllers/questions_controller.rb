@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy, :close]
   before_action :set_questions, only: [:index, :all_destroy, :all_init]
+  before_action :set_answer, only: [:admin_show, :result]
 
   # GET /questions
   # GET /questions.json
@@ -32,12 +33,8 @@ class QuestionsController < ApplicationController
   end
 
   def admin_show
-    @question = Question.find_by!(id: params[:id])
-    @yes_count = Answer.where(question: @question).where(yes: true).count
-    # @number_of_participant = NumberOfParticipant.first
-    @answers_count = Answer.where(question: @question).count
   end
-  
+
   # GET /questions/1/edit
   def edit
   end
@@ -90,12 +87,8 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def result
-    @question = Question.find_by!(id: params[:id])
-    @yes_count = Answer.where(question: @question).where(yes: true).count
-    # @number_of_participant = NumberOfParticipant.first
-    @answers_count = Answer.where(question: @question).count
   end
 
   def all_init
@@ -128,9 +121,15 @@ class QuestionsController < ApplicationController
     def set_questions
       @questions = Question.all
     end
-    
+
     def set_question
       @question = Question.find(params[:id])
+    end
+
+    def set_answer
+      @question = Question.find_by!(id: params[:id])
+      @yes_count = Answer.where(question: @question).where(yes: true).count
+      @answers_count = Answer.where(question: @question).count
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
