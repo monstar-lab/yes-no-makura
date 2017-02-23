@@ -1,6 +1,10 @@
-<h1>Editing Question</h1>
+<div class="wrapper" style="margin-top: 50px">
+    <div class="txt">
+       <h1>Editing Question</h1>
 
-<%= render 'form', question: @question %>
-
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+       <%= render 'form', question: @question %>
+	
+       <%= link_to 'Show', action: :admin_show, id: @question %> |
+       <%= link_to 'Back', questions_path %>
+    </div>
+</div>

@@ -14,3 +14,13 @@ span.xx16-large {font-size: 100px;  color: #fff;}
     background-color: #fff;
     border-color: #ccc;
 }
+.wrapper{
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background: #F0FFFF;
+}
+.txt {
+    display: inline-block;
+    text-align: left;
+}
