@@ -23,8 +23,9 @@
     <% end %>
     <script>
       var max = answersCount;
+      var shuffleNumber = 40;
       var min = 0;
-      var speed = 125;
+      var waitTime = 125;
       var cnt = 0;
       var random;
       var randomBefore = 0;
@@ -41,14 +42,14 @@
       $(function () {
         var setTimer = setInterval(function () {
           changeNumber();
-          max = answersCount - (((answersCount - yesCount) / 40) * cnt);
-          min = (yesCount / 40) * cnt;
-          if (cnt >= 40) {
+          max = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
+          min = (yesCount / shuffleNumber) * cnt;
+          if (cnt >= shuffleNumber) {
             clearInterval(setTimer);
             document.getElementsByTagName('b')[0].firstChild.nodeValue = yesCount;
           }
           cnt++;
-        }, speed);
+        }, waitTime);
       });
     </script>
   </body>
