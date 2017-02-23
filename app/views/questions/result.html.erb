@@ -31,7 +31,9 @@
       function randomNumber (maxNumber, minNumber) {
         return Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
       }
-      function makeRandom (maxNumber, minNumber, randomBefore) {
+      function makeRandom (randomBefore) {
+        maxNumber = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
+        minNumber = (yesCount / shuffleNumber) * cnt;
         var random = randomNumber(maxNumber, minNumber);
         while (random === randomBefore) {
           random = randomNumber(maxNumber, minNumber);
@@ -47,10 +49,8 @@
       }
       $(function () {
         var setTimer = setInterval(function () {
-          var number = makeRandom(max, min, ranBef);
+          var number = makeRandom(ranBef);
           changeNumber(number);
-          max = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
-          min = (yesCount / shuffleNumber) * cnt;
           if (cnt >= shuffleNumber) {
             clearInterval(setTimer);
             changeNumber(yesCount);
