@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   get 'homes/index'
 
-  root                                 'answers#home'
-  get    'homes'                    =>  'homes#index'
+  root                                  'answers#home'
   get    'result/:id'               =>  'questions#result'
   delete 'destroy/questions'        =>  'questions#all_destroy'
   get    'init/questions'           =>  'questions#all_init'
