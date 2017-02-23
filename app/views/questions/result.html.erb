@@ -5,6 +5,7 @@
   </head>
   <body>
     <%= image_tag "logo2.png"%>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <div class="question_title">
       質問：<%= @question.body %>
     </div>
@@ -16,5 +17,46 @@
     <div class="center">
       <%= link_to "次の質問へ", controller: 'questions', action: 'show', id: '0'  %>
     </div>
+    <%= javascript_tag do %>
+      yesCount = <%= raw @yes_count %>;
+      answersCount = <%= raw @answers_count %>;
+    <% end %>
+    <script>
+      var shuffleNumber = 40;
+      var waitTime = 125;
+      var cnt = 0;
+      var ranBef = 0;
+      function randomNumber (maxNumber, minNumber) {
+        return Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
+      }
+      function makeRandom (randomBefore) {
+        maxNumber = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
+        minNumber = (yesCount / shuffleNumber) * cnt;
+        var random = randomNumber(maxNumber, minNumber);
+        while (random === randomBefore) {
+          random = randomNumber(maxNumber, minNumber);
+          if ((maxNumber - minNumber) < 1) {
+            random = randomBefore;
+            break;
+          }
+        }
+        return random;
+      }
+      function changeNumber (number) {
+        document.getElementsByTagName('b')[0].firstChild.nodeValue = number;
+      }
+      $(function () {
+        var setTimer = setInterval(function () {
+          var number = makeRandom(ranBef);
+          changeNumber(number);
+          if (cnt >= shuffleNumber) {
+            clearInterval(setTimer);
+            changeNumber(yesCount);
+          }
+          ranBef = number;
+          cnt++;
+        }, waitTime);
+      });
+    </script>
   </body>
 </html>
