@@ -35,7 +35,7 @@
 			 </ul>
 			</li>
 			<li>
-			    <a href="/start">Start</a>
+			    <%= link_to "Start", controller: 'questions', action: 'show', id: '0' %>
 			</li>
 		    </ul>
 		</div>
@@ -59,9 +59,8 @@
 			    <% when "Homes" %>
 				<h1>yes-no-makura</h1>
 				<h2>Questionnaire System</h2>
-
-				<p><a href="/questions" class="btn btn-default">Questions</a></p>
-				<p><a href="/start" class="btn btn-default">Start</a></p>
+				<p><a href="/questions"  class="btn btn-default">Questions</a></p>
+				<p><a href="/questions/0" class="btn btn-default">Start</a></p>
 			    <% when "Questions" %>
 				<h1>Questions</h1>
 				<h2>View Questions</h2>
