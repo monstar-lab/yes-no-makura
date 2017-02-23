@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
-	p @questions
   end
 
   # GET /questions/new
