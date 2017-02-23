@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'homes/index'
 
   root                                 'answers#home'
-  get    'start'                    =>  'question_masters#start'
   get    'homes'                    =>  'homes#index'
   get    'result/:id'               =>  'questions#result'
   delete 'destroy/questions'        =>  'questions#all_destroy'
