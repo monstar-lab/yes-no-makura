@@ -73,7 +73,7 @@
 				<% end %> 
 			    <% else %>
 			      <span class="x-large"> Q：</span>
-                              <% if @question.body.length < 16 %>
+			      <% if @question.body.length < 16 %>
 			        <span class="xx-large"><%= @question.body %></span>
                               <% else %>
 			        <span class="xx16-large"><%= @question.body %></span>
