@@ -91,6 +91,11 @@ class QuestionsController < ApplicationController
   def result
   end
 
+  def answers(question)
+      @yes_count = Answer.where(question: question).where(yes: true).count
+      @answers_count = Answer.where(question: question).count
+  end
+
   def all_init
     @questions.each do |question|
       question.update!(state: 'init')

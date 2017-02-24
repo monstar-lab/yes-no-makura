@@ -2,75 +2,89 @@
 
 <div id="page">
     <nav class="fh5co-nav" role="navigation">
-	<div class="container">
-	    <% case menu %>
-	    <% when "admin_show" %>
-		<div class="row">	
-	    <% else %>
-		    <div class="row_home">
-	    <% end %>
-	    <div class="col-xs-2">
-		<div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
-	    </div>
-	    <div class="col-xs-10 text-right menu-1">
-		<ul>
-		    <li>
-			<a href="/home.html">HOME</a>
-		    </li>
-		    <li class="has-dropdown active">
-			<a href="/questions">Qestion</a>
-			<ul class="dropdown">
-		            <li><a href="/questions">Qestions</a></li>
-			    <li><a href="/number_of_participants">Number Of Participants</a></li>
-			</ul>
-		    </li>
-		    <li>
-			<%= link_to "Start", controller: 'questions', action: 'show', id: '0' %>
-		    </li>
-		</ul>
-	    </div>
-		    </div>
-		</div>
+        <div class="container">
+            <% case menu %>
+            <% when "admin_show" %>
+                <div class="row">
+            <% else %>
+                    <div class="row_home">
+            <% end %>
+            <div class="col-xs-2">
+                <div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
+            </div>
+            <div class="col-xs-10 text-right menu-1">
+                <ul>
+                    <li>
+                        <a href="/home.html">HOME</a>
+                    </li>
+                    <li class="has-dropdown active">
+                        <a href="/questions">Qestion</a>
+                        <ul class="dropdown">
+                            <li><a href="/questions">Qestions</a></li>
+                            <li><a href="/number_of_participants">Number Of Participants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <%= link_to "Start", controller: 'questions', action: 'show', id: '0' %>
+                    </li>
+                </ul>
+            </div>
+                    </div>
+                </div>
     </nav>
-    
+
     <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
-	<div class="overlay"></div>
-	<div class="container">
-	    <% case menu %>
-	    <% when "admin_show" %>
-		<div class="row">	
-	    <% else %>
-		    <div class="row_home">
-	    <% end %>
-	    <div class="col-md-10 col-md-offset-1 text-center">
-		<div class="display-t">
-		    <div class="display-tc animate-box" data-animate-effect="fadeIn">
-			<% case menu %>
-			<% when "Questions" %>
-			    <h1>Questions</h1>
-			    <h2>View Questions</h2>
-			    <p><a href="/questions/new" class="btn btn-default">New Question</a></p>
-			<% when "Number"%>
-			    <h1>Number Of Participants</h1>
-			    <h2>Number Restriction</h2>
-			    <p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
-			<% when "admin_show" %>
-			    <p id="notice"><%= notice %></p>
-			    <span class="x-large"> Q：</span>
-			    <% if @question.body.length < 16 %>
-				<span class="xx-large"><%= @question.body %></span>
-			    <% else %>
-				<span class="xx16-large"><%= @question.body %></span>
-			    <% end %>
-			    
-			    <br><%= submit_tag "結果表示", class: "btn btn-primary" %>
-			<% when "number_show" %>
-			    <span class="x-large"> Number：</span>
-			    <span class="xx-large"><%= @number_of_participant.number %></span>
-			<% end %>
-		    </div>
-		    </div>
-	    </div>
-	    </div>
-      </div>
+        <div class="overlay"></div>
+        <div class="container">
+            <% case menu %>
+            <% when "admin_show" %>
+                <div class="row">
+            <% else %>
+                    <div class="row_home">
+            <% end %>
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                        <% case menu %>
+                        <% when "Questions" %>
+                            <h1>Questions</h1>
+                            <h2>View Questions</h2>
+                            <p><a href="/questions/new" class="btn btn-default">New Question</a></p>
+                        <% when "Number"%>
+                            <h1>Number Of Participants</h1>
+                            <h2>Number Restriction</h2>
+                            <p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
+                        <% when "admin_show" %>
+                            <p id="notice"><%= notice %></p>
+                            <% case @question.state %>
+                            <% when "close"%>
+                                <span class="showq-large"> Q：</span>
+                                <% if @question.body.length < 16 %>
+                                    <span class="show-large"><%= @question.body %></span>
+                                <% else %>
+                                    <span class="show16-large"><%= @question.body %></span>
+                                <% end %>
+                                <br>
+                                <b class="show_answer_font">
+                                    <%= @yes_count %></b><small style="font-size:10vw">/<%= @answers_count %></small>
+                    </div>
+                            <% else %>
+                    <span class="x-large"> Q：</span>
+                    <% if @question.body.length < 16 %>
+                        <span class="xx-large"><%= @question.body %></span>
+                    <% else %>
+                        <span class="xx16-large"><%= @question.body %></span>
+                    <% end %>
+
+                    <br><%= submit_tag "結果表示", class: "btn btn-primary" %>
+                            <% end %>
+                        <% when "number_show" %>
+                            <span class="x-large"> Number：</span>
+                            <span class="xx-large"><%= @number_of_participant.number %></span>
+                        <% end %>
+                </div>
+            </div>
+                    </div>
+                </div>
+        </div>
     </header>
