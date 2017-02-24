@@ -1,34 +1,34 @@
 <div class="fh5co-loader"></div>
-    
+
 <div id="page">
-  <nav class="fh5co-nav" role="navigation">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-2">
-         <div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
-        </div>
-      </div>
-    </div>
-  </nav>
-	
-  <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
-    <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-	  <div class="col-md-10 col-md-offset-1 text-center">
-	    <div class="display-t">
-	      <div class="display-tc animate-box" data-animate-effect="fadeIn">
-	        <b class="answer_font white">
-		  <%= @yes_count %></b><small class="number_of_participant_font white">/<%= @answers_count %></small>
-	        <p><a href="/questions/0" class="btn btn-default">Next Question</a></p>
-              </div>
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-  </header>
+    </nav>
+
+    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                            <b class="answer_font white">
+                                <%= @yes_count %></b><small class="number_of_participant_font white">/<%= @answers_count %></small>
+                            <p><a href="/questions/0" class="btn btn-default">Next Question</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 </div>
-    
+
 <!-- jQuery -->
 <%= javascript_include_tag 'jquery.min.js'%>
 <!-- jQuery Easing -->
@@ -46,43 +46,43 @@
 <%= javascript_include_tag 'main'%>
 
 <%= javascript_tag do %>
-  yesCount = <%= raw @yes_count %>;
-  answersCount = <%= raw @answers_count %>;
+ yesCount = <%= raw @yes_count %>;
+ answersCount = <%= raw @answers_count %>;
 <% end %>
 <script>
-  var shuffleNumber = 40;
-  var waitTime = 125;
-  var cnt = 0;
-  var ranBef = 0;
-  function randomNumber (maxNumber, minNumber) {
-    return Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
-  }
-  function makeRandom (randomBefore) {
-    maxNumber = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
-    minNumber = (yesCount / shuffleNumber) * cnt;
-    var random = randomNumber(maxNumber, minNumber);
-    while (random === randomBefore) {
-      random = randomNumber(maxNumber, minNumber);
-      if ((maxNumber - minNumber) < 1) {
-	random = randomBefore;
-	break;
-      }
-    }
-    return random;
-  }
-  function changeNumber (number) {
-    document.getElementsByTagName('b')[0].firstChild.nodeValue = number;
-  }
-  $(function () {
-    var setTimer = setInterval(function () {
-    var number = makeRandom(ranBef);
-    changeNumber(number);
-    if (cnt >= shuffleNumber) {
-      clearInterval(setTimer);
-      changeNumber(yesCount);
-    }
-    ranBef = number;
-    cnt++;
-  }, waitTime);
-});
+ var shuffleNumber = 40;
+ var waitTime = 125;
+ var cnt = 0;
+ var ranBef = 0;
+ function randomNumber (maxNumber, minNumber) {
+     return Math.round(minNumber + (Math.random() * (maxNumber - minNumber)));
+ }
+ function makeRandom (randomBefore) {
+     maxNumber = answersCount - (((answersCount - yesCount) / shuffleNumber) * cnt);
+     minNumber = (yesCount / shuffleNumber) * cnt;
+     var random = randomNumber(maxNumber, minNumber);
+     while (random === randomBefore) {
+         random = randomNumber(maxNumber, minNumber);
+         if ((maxNumber - minNumber) < 1) {
+             random = randomBefore;
+             break;
+         }
+     }
+     return random;
+ }
+ function changeNumber (number) {
+     document.getElementsByTagName('b')[0].firstChild.nodeValue = number;
+ }
+ $(function () {
+     var setTimer = setInterval(function () {
+         var number = makeRandom(ranBef);
+         changeNumber(number);
+         if (cnt >= shuffleNumber) {
+             clearInterval(setTimer);
+             changeNumber(yesCount);
+         }
+         ranBef = number;
+         cnt++;
+     }, waitTime);
+ });
 </script>
