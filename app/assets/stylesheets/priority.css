@@ -2,6 +2,9 @@ span.x-large {font-size: 60px;  color: #fff;}
 span.xx-large {font-size: 120px;  color: #fff;}
 span.xx16-large {font-size: 100px;  color: #fff;}
 span.not-find-large {font-size: 90px;  color: #fff;}
+span.showq-large {font-size: 40px;  color: #fff;}
+span.show-large {font-size: 90px;  color: #fff;}
+span.show16-large {font-size: 70px;  color: #fff;}
 .fh5co-cover .display-t,.fh5co-cover .display-tc {
     height: 650px;
 }
@@ -14,6 +17,11 @@ span.not-find-large {font-size: 90px;  color: #fff;}
     margin-right: -15px;
 }
 .btn-default {
+    color: #333;
+    background-color: #50CB86 !important;
+    border-color: #ccc;
+}
+.btn-questions {
     color: #333;
     background-color: #fff;
     border-color: #ccc;
@@ -34,4 +42,15 @@ span.not-find-large {font-size: 90px;  color: #fff;}
 }
 .white{
     color: #fff;
+}
+.show_answer_font {
+    font-size: 13vw;
+    max-width: 100%;
+    max-height: 100%;
+}
+.show_font {
+    font-size: 10vw;
+}
+.no_answer_font {
+    font-size: 100px;
 }

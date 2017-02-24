@@ -1,11 +1,11 @@
 <%= render partial: "shared/header", locals: {menu: "Questions"} %>
 <p id="notice"><%= notice %></p>
 <center>
-  <h3 class="btn btn-default">
+  <h3 class="btn btn-questions">
       <%= link_to image_tag('destroy.png', { border: '0', alt: 'Destroy'}), destroy_questions_path, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%= link_to 'All_Destroy', destroy_questions_path, method: :delete, data: { confirm: 'Are you sure?' } %>
   </h3>
-  <h3 class="btn btn-default">
+  <h3 class="btn btn-questions">
     <%= link_to image_tag('edit.png', { border: '0', alt: 'Edit'}), init_questions_path, data: { confirm: 'Are you sure?' }%>
       <%= link_to 'State_All_Init', init_questions_path , data: { confirm: 'Are you sure?' }%>
   </h3>
