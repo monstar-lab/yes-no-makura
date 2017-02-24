@@ -1,6 +1,8 @@
 span.x-large {font-size: 60px;  color: #fff;}
 span.xx-large {font-size: 120px;  color: #fff;}
 span.xx16-large {font-size: 100px;  color: #fff;}
+span.result-x-large {font-size: 40px;  color: #fff;}
+span.result-xx-large {font-size: 60px;  color: #fff;}
 .fh5co-cover .display-t,.fh5co-cover .display-tc {
     height: 650px;
 }
@@ -17,7 +19,7 @@ span.xx16-large {font-size: 100px;  color: #fff;}
     background-color: #fff;
     border-color: #ccc;
 }
-.btn{
+.btn
     font-family: "Work Sans", Arial, sans-serif;
     border-radius: 30px;
 }
