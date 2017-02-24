@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  root                                 'answers#home'
-  get    'start'                    =>  'question_masters#start'
+  root                                  'answers#home'
   get    'result/:id'               =>  'questions#result'
   delete 'destroy/questions'        =>  'questions#all_destroy'
   get    'init/questions'           =>  'questions#all_init'

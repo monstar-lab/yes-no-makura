@@ -17,6 +17,11 @@ span.show16-large {font-size: 70px;  color: #fff;}
 }
 .btn-default {
     color: #333;
+    background-color: #50CB86 !important;
+    border-color: #ccc;
+}
+.btn-questions {
+    color: #333;
     background-color: #fff;
     border-color: #ccc;
 }
