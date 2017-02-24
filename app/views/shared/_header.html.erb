@@ -73,11 +73,11 @@
 				<% end %> 
 			    <% else %>
 			      <span class="x-large"> Q：</span>
-			      <% if @question.body.length < 16 %>
+                              <% if @question.body.length < 16 %>
 			        <span class="xx-large"><%= @question.body %></span>
-		              <% else %>
+                              <% else %>
 			        <span class="xx16-large"><%= @question.body %></span>
-		              <% end %>
+                              <% end %>
 		              <br><%= submit_tag "結果表示", class: "btn btn-primary" %>
 			   <% end %>
 			   <% when "number_show" %>
