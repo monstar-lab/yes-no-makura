@@ -53,9 +53,9 @@
                         <% when "Number"%>
                             <h1>Number Of Participants</h1>
                             <h2>Number Restriction</h2>
-				            <% if @number_of_participants.count < 1 %>
-					            <p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
-			                <% end %>
+                            <% if @number_of_participants.count < 1 %>
+                                <p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
+                            <% end %>
                         <% when "admin_show" %>
                             <p id="notice"><%= notice %></p>
                             <span class="x-large"> Q：</span>
