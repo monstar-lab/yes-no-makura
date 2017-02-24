@@ -27,7 +27,12 @@
                         <td>
                             <% yes = question.yes_count(question) %>
                             <% answers = question.answers_count(question) %>
-                            <%= yes %>/<%= answers %>
+                            <% case answers %>
+                            <% when 0 %>
+                                未実施
+                            <% else %>
+                                <%= yes %>/<%= answers %>
+                            <% end %>
                         </td>
                         <td>
                             <%= link_to image_tag('show.png', { border: '0', alt: 'Show'}), action: :admin_show, id: question %>
