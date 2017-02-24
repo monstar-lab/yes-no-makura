@@ -1,8 +1,12 @@
 class Question < ApplicationRecord
-  def yes_count(question)
-      @yes_count = Answer.where(question: question).where(yes: true).count
+  has_many :answers
+
+  def yes_count
+    answers.where(yes: true).count
   end
-  def answers_count(question)
-    @answers_count = Answer.where(question: question).count
+
+  def answers_count
+    answers.count
   end
+
 end

@@ -25,8 +25,8 @@
                         <td><%= question.body %></td>
                         <td><%= question.state %></td>
                         <td>
-                            <% yes = question.yes_count(question) %>
-                            <% answers = question.answers_count(question) %>
+                            <% yes = question.yes_count %>
+                            <% answers = question.answers_count %>
                             <% case answers %>
                             <% when 0 %>
                                 未実施
