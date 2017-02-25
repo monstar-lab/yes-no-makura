@@ -1,13 +1,9 @@
 class NumberOfParticipantsController < ApplicationController
-  before_action :set_number_of_participant, only: [:show, :edit, :update, :destroy]
+  before_action :set_number_of_participant, only: %i(edit update destroy)
 
   # GET /number_of_participants
   def index
     @number_of_participants = NumberOfParticipant.all
-  end
-
-  # GET /number_of_participants/1
-  def show
   end
 
   # GET /number_of_participants/new
@@ -25,7 +21,7 @@ class NumberOfParticipantsController < ApplicationController
 
     respond_to do |format|
       if @number_of_participant.save
-        format.html { redirect_to @number_of_participant, notice: 'Number of participant was successfully created.' }
+        format.html { redirect_to number_of_participants_url, notice: 'Number of participant was successfully created.' }
       else
         format.html { render :new }
       end
@@ -36,7 +32,7 @@ class NumberOfParticipantsController < ApplicationController
   def update
     respond_to do |format|
       if @number_of_participant.update(number_of_participant_params)
-        format.html { redirect_to @number_of_participant, notice: 'Number of participant was successfully updated.' }
+        format.html { redirect_to number_of_participants_url, notice: 'Number of participant was successfully updated.' }
       else
         format.html { render :edit }
       end

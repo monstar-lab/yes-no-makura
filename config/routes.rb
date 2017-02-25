@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get    'not_find'                 =>  'questions#not_find'
 
   resources :questions
-  resources :number_of_participants
+  resources :number_of_participants, except: %(show)
 end
