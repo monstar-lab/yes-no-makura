@@ -112,27 +112,26 @@ class QuestionsController < ApplicationController
 
   def not_find
   end
-  end
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
+  def set_questions
+    @questions = Question.all
+  end
 
-def set_questions
-  @questions = Question.all
-end
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
-def set_question
-  @question = Question.find(params[:id])
-end
+  def set_answer
+    @question = Question.find_by!(id: params[:id])
+    @yes_count = Answer.where(question: @question).where(yes: true).count
+    @answers_count = Answer.where(question: @question).count
+  end
 
-def set_answer
-  @question = Question.find_by!(id: params[:id])
-  @yes_count = Answer.where(question: @question).where(yes: true).count
-  @answers_count = Answer.where(question: @question).count
-end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-def question_params
-  params.require(:question).permit(:body, :state)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.require(:question).permit(:body, :state)
+  end
 end

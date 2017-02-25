@@ -63,12 +63,12 @@ class NumberOfParticipantsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_number_of_participant
     @number_of_participant = NumberOfParticipant.find(params[:id])
   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
   def number_of_participant_params
     params.require(:number_of_participant).permit(:number)
   end
