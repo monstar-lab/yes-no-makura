@@ -4,7 +4,6 @@ class QuestionsController < ApplicationController
   before_action :set_answer, only: [:admin_show, :result]
 
   # GET /questions
-  # GET /questions.json
   def index
   end
 
@@ -14,7 +13,6 @@ class QuestionsController < ApplicationController
   end
 
   # GET /questions/1
-  # GET /questions/1.json
   def show
     if params[:id] == '0' then
       if Question.where(state: 'init').count == 0
@@ -40,7 +38,6 @@ class QuestionsController < ApplicationController
   end
 
   # POST /questions
-  # POST /questions.json
   def create
     @question = Question.new(question_params)
 
@@ -48,35 +45,28 @@ class QuestionsController < ApplicationController
       @question.state = params[:question][:state]
       if @question.save
         format.html { redirect_to questions_url, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /questions/1
-  # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
       if @question.update(question_params)
         format.html { redirect_to questions_url, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /questions/1
-  # DELETE /questions/1.json
   def destroy
     @question.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -84,7 +74,6 @@ class QuestionsController < ApplicationController
     @questions.destroy_all
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -97,7 +86,6 @@ class QuestionsController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully update.' }
-      format.json { head :no_content }
     end
   end
 
