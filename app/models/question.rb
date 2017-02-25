@@ -8,5 +8,4 @@ class Question < ApplicationRecord
   def answers_count
     answers.count
   end
-
 end
