@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i(show edit update destroy result)
+  before_action :set_question,  only: %i(show edit update destroy result)
+  before_action :set_questions, only: %i(index init_all delete_all)
 
   # GET /questions
   def index
-    @questions = Question.all
   end
 
   # GET /questions/1
@@ -67,16 +67,14 @@ class QuestionsController < ApplicationController
   def over
   end
 
-  def all_init
-    @questions.each do |question|
-      question.update!(state: 'init')
-    end
+  def init_all
+    @questions.update_all(state: :init)
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully update.' }
     end
   end
 
-  def all_destroy
+  def delete_all
     @questions.destroy_all
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
@@ -88,6 +86,10 @@ class QuestionsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def set_questions
+    @questions = Question.all
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
