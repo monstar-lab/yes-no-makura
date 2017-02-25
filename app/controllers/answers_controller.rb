@@ -1,9 +1,11 @@
 class AnswersController < ApplicationController
+  # GET /answers/new
   def new
     @cookie = params[:cookie_key]
     redirect_to action: :new, cookie_key: SecureRandom.uuid unless @cookie
   end
 
+  # POST /answers
   def create
     question   = Question.find_by(state: :open)
     cookie     = params[:cookie_key]
