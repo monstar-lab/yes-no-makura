@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   has_many :answers
 
   def yes_count
-    answers.where(yes: true).count
+    answers.yeses.count
   end
 
   def answers_count
