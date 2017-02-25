@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root                                  'answers#home'
   get    'result/:id'               =>  'questions#result'
   delete 'destroy/questions'        =>  'questions#all_destroy'
