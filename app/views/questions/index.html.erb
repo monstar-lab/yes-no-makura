@@ -1,54 +1,29 @@
-<%= render partial: "shared/header", locals: {menu: "Questions"} %>
 <p id="notice"><%= notice %></p>
-<center>
-    <h3 class="btn btn-questions">
-        <%= link_to image_tag('destroy.png', { border: '0', alt: 'Destroy'}), destroy_questions_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'All_Destroy', destroy_questions_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </h3>
-    <h3 class="btn btn-questions">
-        <%= link_to image_tag('edit.png', { border: '0', alt: 'Edit'}), init_questions_path, data: { confirm: 'Are you sure?' }%>
-        <%= link_to 'State_All_Init', init_questions_path , data: { confirm: 'Are you sure?' }%>
-    </h3>
-    <center><br>
-        <table>
-            <thead>
-                <tr>
-                    <th>Body</th>
-                    <th>State</th>
-                    <th>Result</th>
-                    <th colspan="3">Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @questions.each do |question| %>
-                    <tr>
-                        <td><%= question.body %></td>
-                        <td><%= question.state %></td>
-                        <td>
-                            <% yes = question.yes_count %>
-                            <% answers = question.answers_count %>
-                            <% case answers %>
-                            <% when 0 %>
-                                未実施
-                            <% else %>
-                                <%= yes %> / <%= answers %>
-                            <% end %>
-                        </td>
-                        <td>
-                            <%= link_to image_tag('show.png', { border: '0', alt: 'Show'}), action: :admin_show, id: question %>
-                            <%= link_to 'Show', action: :admin_show, id: question %>
-                        </td>
-                        <td>
-                            <%= link_to image_tag('edit.png', { border: '0', alt: 'Edit'}), edit_question_path(question) %>
-                            <%= link_to 'Edit', edit_question_path(question) %>
-                        </td>
-                        <td>
-                            <%= link_to image_tag('destroy.png', { border: '0', alt: 'Destroy'}), question, method: :delete, data: { confirm: 'Are you sure?' } %>
-                            <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
-                        </td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
 
-        <%= render 'shared/footer' %>
+<h1>Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.body %></td>
+        <td><%= question.state %></td>
+        <td><%= link_to 'Show', question %></td>
+        <td><%= link_to 'Edit', edit_question_path(question) %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Question', new_question_path %>
