@@ -19,7 +19,7 @@
     var random = randomNumber(maxNumber, minNumber);
     while (random === randomBefore) {
       random = randomNumber(maxNumber, minNumber);
-      if ((maxNumber - minNumber) < 1) {
+      if ((maxNumber - minNumber) <= 1) {
         random = randomBefore;
         break;
       }
