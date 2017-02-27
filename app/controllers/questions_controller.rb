@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question,  only: %i(show edit update destroy result)
+  before_action :set_question,  only: %i(show edit update destroy close result)
   before_action :set_questions, only: %i(index init_all delete_all)
 
   # GET /questions
@@ -59,8 +59,15 @@ class QuestionsController < ApplicationController
     return redirect_to propose_question_url(@question) if @question.update(state: :open)
   end
 
+  def close
+    if @question.update(state: :close)
+      redirect_to result_question_url(@question)
+    else
+      redirect_to propose_question_url(@question)
+    end
+  end
+
   def result
-    return redirect_to propose_question_url(@question) unless @question.update(state: :close)
     @yes_count     = @question.yes_count
     @answers_count = @question.answers_count
   end

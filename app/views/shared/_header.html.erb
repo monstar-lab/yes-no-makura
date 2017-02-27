@@ -37,7 +37,9 @@
             <% when :propose %>
               <h1><%= @question.body %></h1>
               <h2></h2>
-              <p><%= link_to 'Result', result_question_path(@question), class: 'btn btn-default' %></p>
+              <%= form_for @question, url: { action: :close } do |f| %>
+                <% submit_tag 'Result', class: 'btn btn-default' %>
+              <% end %>
             <% when :result %>
               <h1><%= @yes_count %><small>/<%= @answers_count %></small></h1>
               <h2></h2>
