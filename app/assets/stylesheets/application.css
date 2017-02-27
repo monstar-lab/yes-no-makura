@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.fh5co-cover .display-t,
+.fh5co-cover .display-tc {
+  height: 780px;
+}
