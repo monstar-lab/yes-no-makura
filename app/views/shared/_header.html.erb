@@ -17,7 +17,7 @@
   </div>
 </nav>
 
-<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+<header id="fh5co-header" class="fh5co-cover" role="banner">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -28,20 +28,20 @@
             <% case current %>
             <% when :questions %>
               <h1>Questions</h1>
-              <h2>View Questions</h2>
+              <h2></h2>
               <p><%= link_to 'New Question', new_question_path, class: 'btn btn-default' %></p>
             <% when :show %>
               <h1><%= @question.body %></h1>
               <h2></h2>
-              <p><%= link_to 'Result', '', class: 'btn btn-default' %></p>
+              <p><div class="btn btn-default">Result</div></p>
             <% when :propose %>
               <h1><%= @question.body %></h1>
               <h2></h2>
               <%= form_for @question, url: { action: :close } do |f| %>
-                <% submit_tag 'Result', class: 'btn btn-default' %>
+                <p><%= submit_tag 'Result', class: 'btn btn-default' %></p>
               <% end %>
             <% when :result %>
-              <h1><%= @yes_count %><small>/<%= @answers_count %></small></h1>
+              <h1><b><%= @yes_count %></b><small>/<%= @answers_count %></small></h1>
               <h2></h2>
               <p><%= link_to 'Next Question', propose_question_path(0), class: 'btn btn-default' %></p>
             <% when :over %>
