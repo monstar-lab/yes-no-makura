@@ -16,7 +16,23 @@
 
 .fh5co-cover .display-t,
 .fh5co-cover .display-tc {
-  height: 780px;
+  height: 720px;
+
+  #question {
+    margin:    0 -8vw;
+    font-size: 6vw;
+  }
+
+  #yes-count {
+    line-height: initial;
+    font-size:   30vw;
+    font-weight: bold;
+  }
+
+  #answers-count {
+    font-size:   16vw;
+    font-weight: bold;
+  }
 }
 
 #fh5co-services-section {
