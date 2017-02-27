@@ -1,43 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>YesNoMakura</title>
-  <%= csrf_meta_tags %>
-  <meta charset="utf-8">	
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>YesNoMakura</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!-- Theme style  -->
-  <%= stylesheet_link_tag    'style'%>
-  <!-- Animate.css -->
-  <%= stylesheet_link_tag    'animate'%>
-  <!-- Icomoon Icon Fonts-->
-  <%= stylesheet_link_tag    'icomoon'%>
-  <!-- Bootstrap  -->
-  <%= stylesheet_link_tag    'bootstrap'%>
-  <!-- Magnific Popup -->
-  <%= stylesheet_link_tag    'magnific-popup'%>
-
-  <!-- Fonts -->
-  <%= stylesheet_link_tag    'fonts'%>
-  <!-- priority -->
-  <%= stylesheet_link_tag    'priority'%>
-  
-  <!-- Modernizr JS -->
-  <%= javascript_include_tag 'modernizr-2.6.2.min'%>
-  <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
-      <script src="js/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- table -->
-  <%= stylesheet_link_tag    'frame'%>
-  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <%= yield %>
+    <!-- <div class="fh5co&#45;loader"></div> -->
+    <div id="page">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'shared/header', locals: { current: :questions } %>
 
-<h1>Questions</h1>
+<div id="fh5co-services-section">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>State</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="feature-center">
+      <h3 class="btn btn-lg btn-outline">
+        <%= link_to image_tag('destroy.png'), delete_all_questions_path, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete All', delete_all_questions_path, data: { confirm: 'Are you sure?' } %>
+      </h3>
 
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.body %></td>
-        <td><%= question.state %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <h3 class="btn btn-lg btn-outline">
+        <%= link_to image_tag('edit.png'), init_all_questions_path, data: { confirm: 'Are you sure?' }%>
+        <%= link_to 'Init All', init_all_questions_path , data: { confirm: 'Are you sure?' }%>
+      </h3>
+    </div>
 
-<br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Body</th>
+          <th>State</th>
+          <th>Result</th>
+          <th class="col-md-3" colspan="3">Options</th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Question', new_question_path %>
+      <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.body %></td>
+            <td><%= question.state %></td>
+            <td><%= question.yes_count %> / <%= question.answers_count %></td>
+            <td><%= link_to 'Show', question %></td>
+            <td><%= link_to 'Edit', edit_question_path(question) %></td>
+            <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>

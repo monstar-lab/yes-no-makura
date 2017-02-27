@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'shared/header', locals: { current: :show } %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
+<div id="fh5co-services-section">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>State:</strong>
-  <%= @question.state %>
-</p>
+    <p>
+      <strong>Body:</strong>
+      <%= @question.body %>
+    </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+    <p>
+      <strong>State:</strong>
+      <%= @question.state %>
+    </p>
+
+    <%= link_to 'Edit', edit_question_path(@question) %> |
+    <%= link_to 'Back', questions_path %>
+  </div>
+</div>
