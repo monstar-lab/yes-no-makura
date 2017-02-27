@@ -10,7 +10,6 @@
           <ul>
             <li class="active"><a href="admin">Home</a></li>
             <li><a href="questions">Questions</a></li>
-            <li><a href="number_of_participants">Participants</a></li>
           </ul>
         </div>
       <% end %>
@@ -41,12 +40,6 @@
               <p><a href="questions" class="btn btn-default">Next Question</a></p>
             <% when :over %>
               <h1>以上で質問を終わります。<br>ありがとうございました。</h1>
-            <% when :participants %>
-              <h1>Number Of Participants</h1>
-              <h2>Number Restriction</h2>
-              <% if @number_of_participants.present? %>
-                <p><a href="number_of_participants/new" class="btn btn-default">New Number Of Participant</a></p>
-              <% end %>
             <% end %>
           </div>
         </div>
