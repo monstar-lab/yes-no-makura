@@ -18,3 +18,20 @@
 .fh5co-cover .display-tc {
   height: 780px;
 }
+
+#answers {
+  img {
+    max-width: 100%;
+  }
+
+  .button {
+    width:            88%;
+    margin-top:       5vh;
+    border:           1px solid transparent;
+    border-radius:    4px;
+    background-color: #15a28e;
+    color:            white;
+    font-size:        18vh;
+    font-weight:      bold;
+  }
+}
