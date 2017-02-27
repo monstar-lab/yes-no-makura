@@ -56,10 +56,11 @@ class QuestionsController < ApplicationController
 
     @question = Question.find_by(state: :init)
     return redirect_to over_questions_url unless @question
-    return redirect_to @question if @question.update(state: :open)
+    return redirect_to propose_question_url(@question) if @question.update(state: :open)
   end
 
   def result
+    return redirect_to propose_question_url(@question) unless @question.update(state: :close)
     @yes_count     = @question.yes_count
     @answers_count = @question.answers_count
   end

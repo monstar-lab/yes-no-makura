@@ -2,14 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-2">
-        <div id="fh5co-logo"><a href="admin">MONST☆RLAB</a></div>
+        <div id="fh5co-logo"><a href="/admin">MONST☆RLAB</a></div>
       </div>
 
-      <% unless current.in?(%i(propose result)) %>
+      <% unless current.in?(%i(propose result over)) %>
         <div class="col-xs-10 text-right menu-1">
           <ul>
-            <li class="active"><a href="admin">Home</a></li>
-            <li><a href="questions">Questions</a></li>
+            <li><a href="/admin">Home</a></li>
+            <li class="active"><%= link_to 'Questions', questions_path %></li>
           </ul>
         </div>
       <% end %>
@@ -29,15 +29,19 @@
             <% when :questions %>
               <h1>Questions</h1>
               <h2>View Questions</h2>
-              <p><a href="questions/new" class="btn btn-default">New Question</a></p>
-            <% when :show, :propose %>
+              <p><%= link_to 'New Question', new_question_path, class: 'btn btn-default' %></p>
+            <% when :show %>
               <h1><%= @question.body %></h1>
               <h2></h2>
-              <p><a href="" class="btn btn-default">Result</a></p>
+              <p><%= link_to 'Result', '', class: 'btn btn-default' %></p>
+            <% when :propose %>
+              <h1><%= @question.body %></h1>
+              <h2></h2>
+              <p><%= link_to 'Result', result_question_path(@question), class: 'btn btn-default' %></p>
             <% when :result %>
               <h1><%= @yes_count %><small>/<%= @answers_count %></small></h1>
               <h2></h2>
-              <p><a href="questions" class="btn btn-default">Next Question</a></p>
+              <p><%= link_to 'Next Question', propose_question_path(0), class: 'btn btn-default' %></p>
             <% when :over %>
               <h1>以上で質問を終わります。<br>ありがとうございました。</h1>
             <% end %>
