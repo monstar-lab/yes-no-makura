@@ -1,78 +1,56 @@
-<div class="fh5co-loader"></div>
+<nav class="fh5co-nav" role="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2">
+        <div id="fh5co-logo"><a href="admin">MONST☆RLAB</a></div>
+      </div>
 
-<div id="page">
-    <nav class="fh5co-nav" role="navigation">
-        <div class="container">
-            <% case menu %>
-            <% when "admin_show" %>
-                <div class="row">
-            <% else %>
-                    <div class="row_home">
+      <% unless current.in?(%i(propose result)) %>
+        <div class="col-xs-10 text-right menu-1">
+          <ul>
+            <li class="active"><a href="admin">Home</a></li>
+            <li><a href="questions">Questions</a></li>
+            <li><a href="number_of_participants">Participants</a></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 text-center">
+        <div class="display-t">
+          <!-- <div class="display&#45;tc animate&#45;box" data&#45;animate&#45;effect="fadeIn"> -->
+          <div class="display-tc" data-animate-effect="fadeIn">
+            <% case current %>
+            <% when :questions %>
+              <h1>Questions</h1>
+              <h2>View Questions</h2>
+              <p><a href="questions/new" class="btn btn-default">New Question</a></p>
+            <% when :show, :propose %>
+              <h1><%= @question.body %></h1>
+              <h2></h2>
+              <p><a href="" class="btn btn-default">Result</a></p>
+            <% when :result %>
+              <h1><%= @yes_count %><small>/<%= @answers_count %></small></h1>
+              <h2></h2>
+              <p><a href="questions" class="btn btn-default">Next Question</a></p>
+            <% when :over %>
+              <h1>以上で質問を終わります。<br>ありがとうございました。</h1>
+            <% when :participants %>
+              <h1>Number Of Participants</h1>
+              <h2>Number Restriction</h2>
+              <% if @number_of_participants.present? %>
+                <p><a href="number_of_participants/new" class="btn btn-default">New Number Of Participant</a></p>
+              <% end %>
             <% end %>
-            <div class="col-xs-2">
-                <div id="fh5co-logo"><a href="/home.html">MONST☆RLAB</a></div>
-            </div>
-            <div class="col-xs-10 text-right menu-1">
-                <ul>
-                    <li>
-                        <a href="/home.html">HOME</a>
-                    </li>
-                    <li class="has-dropdown active">
-                        <a href="/questions">Qestion</a>
-                        <ul class="dropdown">
-                            <li><a href="/questions">Qestions</a></li>
-                            <li><a href="/number_of_participants">Number Of Participants</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <%= link_to "Start", controller: 'questions', action: 'show', id: '0' %>
-                    </li>
-                </ul>
-            </div>
-                    </div>
-                </div>
-    </nav>
-
-    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
-        <div class="overlay"></div>
-        <div class="container">
-            <% case menu %>
-            <% when "admin_show" %>
-                <div class="row">
-            <% else %>
-                    <div class="row_home">
-            <% end %>
-            <div class="col-md-10 col-md-offset-1 text-center">
-                <div class="display-t">
-                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                        <% case menu %>
-                        <% when "Questions" %>
-                            <h1>Questions</h1>
-                            <h2>View Questions</h2>
-                            <p><a href="/questions/new" class="btn btn-default">New Question</a></p>
-                        <% when "Number"%>
-                            <h1>Number Of Participants</h1>
-                            <h2>Number Restriction</h2>
-                            <% if @number_of_participants.count < 1 %>
-                                <p><a href="/number_of_participants/new" class="btn btn-default">New Number Of participant</a></p>
-                            <% end %>
-                        <% when "admin_show" %>
-                            <p id="notice"><%= notice %></p>
-                            <span class="x-large"> Q：</span>
-                            <% if @question.body.length < 16 %>
-                                <span class="xx-large"><%= @question.body %></span>
-                            <% else %>
-                                <span class="xx16-large"><%= @question.body %></span>
-                            <% end %>
-
-                            <br><%= submit_tag "結果表示", class: "btn btn-primary" %>
-                        <% when "number_show" %>
-                            <span class="x-large"> Number：</span>
-                            <span class="xx-large"><%= @number_of_participant.number %></span>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
           </div>
-       </div>
-    </header>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

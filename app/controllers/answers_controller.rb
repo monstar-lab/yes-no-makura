@@ -1,29 +1,24 @@
 class AnswersController < ApplicationController
-  def home
-    if params[:cookie_key].blank?
-      redirect_to action: 'home', cookie_key: SecureRandom.uuid
-    end
-    @cookie_key = params[:cookie_key]
+  # GET /answers/new
+  def new
+    @cookie = answer_params[:cookie_key]
+    redirect_to action: :new, cookie_key: SecureRandom.uuid unless @cookie
   end
 
-  def agree
-    reply(true)
-  end
-
-  def disagree
-    reply(false)
+  # POST /answers
+  def create
+    question   = Question.find_by(state: :open)
+    cookie     = answer_params[:cookie_key]
+    attributes = { question: question, cookie_key: cookie }
+    results    = { yes: answer_params[:yes] }
+    Answer.find_or_initialize_by(attributes).update(results) if question
+    redirect_to action: :new, cookie_key: cookie
   end
 
   private
 
-  def reply(answer)
-    question = Question.find_by(state: 'open')
-    if question.present?
-      @answer = Answer.find_or_create_by(cookie_key: params[:cookie_key], question_id: question.id)
-      @answer.cookie_key = params[:cookie_key]
-      @answer.yes = answer
-      @answer.save
-    end
-    redirect_to action: 'home', cookie_key: params[:cookie_key]
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def answer_params
+    params.permit(:cookie_key, :yes)
   end
 end
