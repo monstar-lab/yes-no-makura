@@ -29,7 +29,7 @@
   function changeNumber (number) {
     document.getElementById('yes-count').innerText = number;
   }
-  $(function () {
+  window.onload = function () {
     var setTimer = setInterval(function () {
       var number = makeRandom(ranBef);
       changeNumber(number);
@@ -40,5 +40,5 @@
       ranBef = number;
       cnt++;
     }, waitTime);
-  });
+  };
 </script>
