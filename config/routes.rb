@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'answers#new'
 
+  get :admin, to: 'application#admin'
+
   resources :answers, only: %i(create) do
     delete :delete_all, on: :collection
   end
