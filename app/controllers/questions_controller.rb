@@ -76,13 +76,13 @@ class QuestionsController < ApplicationController
   def over
   end
 
-  # GET /questions/init_all
+  # PATCH /questions/init_all
   def init_all
     @questions.update_all(state: :init)
     redirect_to questions_url, notice: 'Question was successfully update.'
   end
 
-  # GET /questions/delete_all
+  # DELETE /questions/delete_all
   def delete_all
     @questions.destroy_all
     redirect_to questions_url, notice: 'Question was successfully destroyed.'
