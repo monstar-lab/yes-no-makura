@@ -15,6 +15,12 @@ class AnswersController < ApplicationController
     redirect_to action: :new, cookie_key: cookie
   end
 
+  # DELETE /answers/delete_all
+  def delete_all
+    Answer.destroy_all
+    redirect_to questions_url, notice: 'Answer was successfully destroyed.'
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
