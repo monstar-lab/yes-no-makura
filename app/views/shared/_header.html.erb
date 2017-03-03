@@ -8,8 +8,8 @@
       <% unless current.in?(%i(propose result over)) %>
         <div class="col-xs-10 text-right menu-1">
           <ul>
-            <li><a href="/admin">Home</a></li>
-            <li class="active"><%= link_to 'Questions', questions_path %></li>
+            <li class="<%= 'active' if current == :admin %>"><%= link_to 'Home', admin_path %></li>
+            <li class="<%= 'active' if current != :admin %>"><%= link_to 'Questions', questions_path %></li>
           </ul>
         </div>
       <% end %>
