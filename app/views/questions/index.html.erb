@@ -2,9 +2,9 @@
 
 <div id="fh5co-services-section">
   <div class="container">
-    <p id="notice"><%= notice %></p>
-
     <div class="feature-center">
+      <p id="notice"><%= notice %></p>
+
       <h3 class="btn btn-lg btn-outline">
         <%= link_to image_tag('destroy.png'), delete_all_questions_path, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Delete All', delete_all_questions_path, data: { confirm: 'Are you sure?' } %>
@@ -19,7 +19,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Body</th>
+          <th class="col-md-6">Body</th>
           <th>State</th>
           <th>Result</th>
           <th class="col-md-3" colspan="3">Options</th>

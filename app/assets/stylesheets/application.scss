@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+
+.fh5co-cover .display-t,
+.fh5co-cover .display-tc {
+  height: 720px;
+
+  #question {
+    margin:    0 -8vw;
+    font-size: 6vw;
+  }
+
+  #yes-count {
+    line-height: initial;
+    font-size:   30vw;
+    font-weight: bold;
+  }
+
+  #answers-count {
+    font-size:   16vw;
+    font-weight: bold;
+  }
+}
+
+#fh5co-services-section {
+  padding-top: 2em;
+}
+
+#answers {
+  img {
+    max-width: 100%;
+  }
+
+  .button {
+    width:            88%;
+    margin-top:       5vh;
+    padding:          0;
+    border:           1px solid transparent;
+    border-radius:    4px;
+    background-color: #15a28e;
+    color:            white;
+    font-size:        18vh;
+    font-weight:      bold;
+  }
+}
