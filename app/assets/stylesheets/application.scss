@@ -15,6 +15,10 @@
  *= require_self
  */
 
+#fh5co-logo img {
+  max-height: 28px;
+}
+
 .fh5co-loader {
   background-image: image-url('loader.gif');
 }
@@ -46,12 +50,19 @@
 
 #answers {
   img {
-    max-width: 100%;
+    max-width:     80%;
+    margin-top:    5vh;
+    margin-bottom: 2vh;
+  }
+
+  .text {
+    font-size: 5vw;
   }
 
   .button {
     width:            88%;
-    margin-top:       5vh;
+    margin-top:       3vh;
+    margin-bottom:    2vh;
     padding:          0;
     border:           1px solid transparent;
     border-radius:    4px;
