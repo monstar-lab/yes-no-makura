@@ -1,9 +1,12 @@
 APP_PATH = File.expand_path('../..', __FILE__)
+DEV_FLAG = ENV.fetch('RAILS_ENV').in?(%w(development test))
 
-pidfile "#{APP_PATH}/tmp/pids/server.pid"
-bind    "unix://#{APP_PATH}/tmp/sockets/server.sock"
+unless DEV_FLAG
+  pidfile "#{APP_PATH}/tmp/pids/server.pid"
+  bind    "unix://#{APP_PATH}/tmp/sockets/server.sock"
 
-daemonize true
+  daemonize true
+end
 
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers a minimum and maximum.
