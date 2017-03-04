@@ -1,7 +1,7 @@
 APP_PATH = File.expand_path('../..', __FILE__)
-DEV_FLAG = ENV.fetch('RAILS_ENV').in?(%w(development test))
+PRD_FLAG = ENV.fetch('RAILS_ENV') == 'production'
 
-unless DEV_FLAG
+if PRD_FLAG
   pidfile "#{APP_PATH}/tmp/pids/server.pid"
   bind    "unix://#{APP_PATH}/tmp/sockets/server.sock"
 
