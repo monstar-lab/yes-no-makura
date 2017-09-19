@@ -14,4 +14,5 @@
     <%= yield %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
+  <%= debug(params) if Rails.env.development? %>
 </html>
