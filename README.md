@@ -5,7 +5,14 @@
 ## 開発環境構築手順
 1. 任意の場所に`git clone URL` でプロジェクトを引っ張って来て下さい。
 
-1. `bundle install`を行って下さい。(rubyやrailsのバージョンが異なる場合は下記参照)
+1. プロジェクトごとにrubyのバージョンが異なるため、rubyのバージョンを変更する必要があります。これには`rbenv`を使用します。
+詳しい使用方法は[コチラ](http://vdeep.net/mac-ruby-rubyonrails)を参照して下さい。
+
+1. `rbenv install` を実行し必要なバージョンのrubyをインストールします。`.ruby-version`にバージョンを設定してあるので、バージョン指定は必要ありません。
+
+1. rubyのバージョンを変更したため、`gem install bundler`でbundlerもインストールし直します。
+
+1. `bundle install`を行って下さい。
 
 1. `rails db:migrate` でマイグレーションを行って下さい。
 
@@ -13,15 +20,7 @@
 
 1. まずは試しにアプリを使ってみましょう。
 
-#### rubyやrailsのバージョンが異なる場合
 
-rubyのバージョンが異なるため、`bundle install`できないという場合はプロジェクト内でrubyのバージョンを変更する必要があります。これには`rbenv`を使用します。
-詳しい手順は[コチラ](http://vdeep.net/mac-ruby-rubyonrails)を参照して下さい。
-1. `rbenv install VERSION`で必要なバージョンのrubyをインストールします。
-
-1. プロジェクトのディレクトリ内で`rbenv local VERSION`を実行し、rubyのバージョンの変更を行って下さい。
-
-1. rubyのバージョンを変更したため、`gem install bundler`でbundlerもインストールし直します。
 
 ## 基本的なアプリの使い方
 ### 管理者(質問の管理や表示を行う)
@@ -58,15 +57,15 @@ rubyのバージョンが異なるため、`bundle install`できないという
 1. 個別の質問の内容の変更を行う場合はOptionsのEdit、削除の場合はDestroyを押して下さい
 
 #### 一括での操作
-**回答のリセット**
+- 回答のリセット
 
 回答のStateを一括でinitの状態に戻すには質問が表示されている表の上の`INITIALISE ALL`を押して下さい。
 
-**回答結果のリセット**
+- 回答結果のリセット
 
 回答結果をリセットしたい場合は表の上に表示されている`RESET ALL ANSWERS`を押して下さい。
 
-**質問の削除**
+- 質問の削除
 
 質問を一括で削除したい場合は表の上に表示されている`DELETE ALL`を押して下さい。
 ※集計結果も削除されるので注意!!
