@@ -1,24 +1,46 @@
-# README
+# yes-no-makura
+## システム概要
+任意の質問をリアルタイムで表示、回答を集計するアプリケーションです。質問はディスプレイやプロジェクタに表示し、回答者にはスマートフォンやタブレット等の端末から「yes」「no」で質問の回答をしてもらいます。
+イベントでの使用が考えられているシステムです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 基本的な使い方
+#### 管理者(質問の管理や表示を行う)
+**管理画面の表示**
+1. 管理者としてアプリを使用する場合は`/admin`にアクセスしてください。※ルートは回答者の回答用画面が表示されます。
 
-Things you may want to cover:
+**質問の登録**
+1. 画面右上の`QUESTIONS`を押します。
+1. 画面中央に`NEW QUESTION`のボタンが表示されます。
+1. ボタンを押すと質問の登録画面に移ります。
+1. Bodyに質問文を入力して下さい。
+1. Stateは`init`を選択して下さい。(`open`は回答中、`close`は回答終了の状態を指します)
+1.`Create Question`を押すと質問が登録されます。
 
-* Ruby version
+**質問の表示**
+1. 質問を登録し終えたらHOME画面に戻り`START`を押しましょう。
+1. 画面に登録した質問が表示されます。その間に回答者に質問の回答をしてもらいます。
+1. 頃合いを見て`RESULT`ボタンを押します。
+1. 画面に結果が表示されます。(yesと回答した人数が表示されます)
+1. 次の質問がある場合は`Next Question`を押します。
 
-* System dependencies
+**個別の質問の編集・削除**
+1. 登録した質問は一覧で表示されています。
+1. 個別の質問の内容の変更を行う場合はOptionsのEdit、削除の場合はDestroyを押して下さい
 
-* Configuration
+#### 一括での操作
+**回答のリセット**
+回答のStateを一括でinitの状態に戻すには質問が表示されている表の上の`INITIALISE ALL`を押して下さい。
 
-* Database creation
+**回答結果のリセット**
+回答結果をリセットしたい場合は表の上に表示されている`RESET ALL ANSWERS`を押して下さい。
 
-* Database initialization
+**質問の削除**
+質問を一括で削除したい場合は表の上に表示されている`DELETE ALL`を押して下さい。
+※集計結果も削除されるので注意!!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### 回答者(質問に対し回答を行う)
+**質問への回答**
+1. スマートフォンやタブレット等の端末からルートにアクセスをする。回答ページが表示されます。
+1. 管理者が質問をディスプレイやプロジェクタで投影しています。その質問に対し、「yes」「no」のボタンを押してください。
+※質問が表示されていない場合はボタンを押しても回答はカウントされません。
+1. 回答者がOKを押して質問を送信すると、それらを集計したものが管理者の画面に表示されます。
