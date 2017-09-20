@@ -1,5 +1,7 @@
 class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
+  validates :body, presence: true
+  validates :state, presence: true
 
   def yes_count
     answers.yeses.count
