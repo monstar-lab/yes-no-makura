@@ -50,7 +50,13 @@ class QuestionsController < ApplicationController
     return set_question unless params[:id] == '0'
 
     @question = Question.find_by(state: :init)
-    return redirect_to over_questions_url unless @question
+    unless @question
+      unless Question.any?
+        return redirect_to new_question_url
+      else
+        return redirect_to over_questions_url
+      end
+    end
 
     if @question.update(state: :open)
       redirect_to propose_question_url(@question)
