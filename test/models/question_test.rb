@@ -11,7 +11,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   # バリデーションがかかっているかのテスト
   test "should be valid?" do
-   assert @question.valid?
+  assert @question.valid?
   end
 
   # bodyのバリデーションのテスト
