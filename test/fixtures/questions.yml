@@ -2,8 +2,8 @@
 
 one:
   body: MyString
-  state: MyString
+  state: init
 
 two:
   body: MyString
-  state: MyString
+  state: init
