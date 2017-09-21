@@ -19,6 +19,18 @@
   width: 10em;
 }
 
+/* アプリのロゴのサイズを画面の幅に合わせる */
+#logo-app img {
+  max-width: 70%;
+  height: auto;
+  position: relative;
+  right: 20px;
+}
+
+h1#new-question {
+  color: #005B98;
+}
+
 .fh5co-loader {
   background-image: image-url('loader.gif');
 }
@@ -66,9 +78,75 @@
     padding:          0;
     border:           1px solid transparent;
     border-radius:    4px;
-    background-color: #15a28e;
     color:            white;
     font-size:        18vh;
     font-weight:      bold;
   }
+
+  .yes {
+    background-color: #C92E36;
+  }
+
+  .no {
+    background-color: #005B98;
+  }
+}
+
+.btn-primary {
+  background: #EE9D19 !important;
+  background-color: #EE9D19;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #d72500 !important;
+  background-color: #d72500;
+  border: none;
+}
+
+/* 画面の背景色 */
+.fh5co-cover .overlay {
+  background: #005B98;
+}
+
+/* フォントと文字色 */
+body {
+  font-family: "hiragino kaku gothic pro","メイリオ", Arial, sans-serif;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+a {
+  color: #005B98;
+  font-weight: 400;
+}
+
+a:hover, a:active, a:focus {
+  color: #d72500;
+}
+
+/* ボタンの色差し替え */
+#fh5co-header .display-tc .btn,
+#fh5co-counter .display-tc .btn,
+.fh5co-cover .display-tc .btn {
+  background: #EE9D19 !important;
+  background-color: #EE9D19;
+}
+
+#fh5co-header .display-tc .btn:hover,
+#fh5co-counter .display-tc .btn:hover,
+.fh5co-cover .display-tc .btn:hover {
+  background: #EE9D19 !important;
+  background-color: #EE9D19;
+}
+
+.btn-outline {
+  border-color: #EE9D19;
+}
+
+.btn-outline:hover {
+  border-color: #EE9D19;
+  background: #F6F7F8;
 }

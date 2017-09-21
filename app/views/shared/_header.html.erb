@@ -34,7 +34,7 @@
               <h2></h2>
               <p><div class="btn btn-default">Result</div></p>
             <% when :admin %>
-              <h1>yes-no-makura</h1>
+              <div id="logo-app"><%= image_tag 'logo-app.png' %></div>
               <h2>A Questionnaire System</h2>
               <p><%= link_to 'Start', propose_question_path(0), class: 'btn btn-default' %></p>
             <% when :propose %>
