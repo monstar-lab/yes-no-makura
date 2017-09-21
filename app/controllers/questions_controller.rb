@@ -52,7 +52,8 @@ class QuestionsController < ApplicationController
     @question = Question.find_by(state: :init)
     unless @question
       unless Question.any?
-        return redirect_to new_question_url
+        flash[:notice] = "Question is Nothing!"
+        return redirect_to admin_path
       else
         return redirect_to over_questions_url
       end
