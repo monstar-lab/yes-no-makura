@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
-  validates :body, presence: true, length: {maximum: 50}
-  validates :state, presence: true
+  validates :body, presence: true, length: { maximum: 50 }
+  validates :state, presence: true, inclusion: { in: %w(init open false) }
 
   def yes_count
     answers.yeses.count
