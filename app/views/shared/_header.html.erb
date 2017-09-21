@@ -51,6 +51,7 @@
               <p><%= link_to 'Next Question', propose_question_path(0), class: 'btn btn-default' %></p>
             <% when :over %>
               <h1>以上で質問を終わります。<br>ありがとうございました。</h1>
+                <p><%= link_to 'Back', admin_path %></p>
             <% end %>
           </div>
         </div>
