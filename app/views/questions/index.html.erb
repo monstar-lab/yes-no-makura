@@ -5,17 +5,17 @@
     <div class="feature-center">
       <p id="notice"><%= notice %></p>
 
-      <h3 class="btn btn-lg btn-outline btn-default">
-        <%= link_to 'Initialize All', init_all_questions_path, data: { confirm: 'Are you sure?' }, method: :patch %>
-      </h3>
+      <%= link_to(init_all_questions_path, data: { confirm: 'Are you sure?' }, method: :patch) do %>
+          <h3 class="btn btn-lg btn-outline btn-default">Initialize All</h3>
+      <% end %>
 
-      <h3 class="btn btn-lg btn-outline btn-default">
-        <%= link_to 'Reset All Answers', delete_all_answers_path, data: { confirm: 'Are you sure?' }, method: :delete %>
-      </h3>
+      <%= link_to(delete_all_answers_path, data: { confirm: 'Are you sure?' }, method: :delete) do %>
+          <h3 class="btn btn-lg btn-outline btn-default">Reset All Answers</h3>
+      <% end %>
 
-      <h3 class="btn btn-lg btn-outline btn-default">
-        <%= link_to 'Delete All', delete_all_questions_path, data: { confirm: 'Are you sure?' }, method: :delete %>
-      </h3>
+      <%= link_to(delete_all_questions_path, data: { confirm: 'Are you sure?' }, method: :delete) do %>
+          <h3 class="btn btn-lg btn-outline btn-default">Delete All</h3>
+      <% end %>
     </div>
 
     <table class="table table-striped">
