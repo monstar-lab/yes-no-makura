@@ -787,10 +787,7 @@ form label {
 .feature-center h3 {
   text-transform: uppercase;
   font-size: 18px;
-  color: #50CB86;
-}
-.feature-center .btn:link, .feature-center .btn:visited, .feature-center .btn:hover, .feature-center .btn:active {
-  color: #50CB86;
+  color: #5d5d5d;
 }
 
 #fh5co-features-2 .fh5co-heading h2 {
