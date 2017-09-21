@@ -3,9 +3,7 @@ class AnswersController < ApplicationController
   def new
     @cookie = answer_params[:cookie_key]
     redirect_to action: :new, cookie_key: SecureRandom.uuid unless @cookie
-      TotalChannel.broadcast_to('editnum', {yescon:Answer.where(question_id: Question.find_by(state: :open).id).yeses.count,
-                                          anscon:Answer.where(question_id: Question.find_by(state: :open).id).count,
-                                          nowid:Question.find_by(state: :open).id}) if Question.find_by(state: :open)
+
   end
 
   # POST /answers
@@ -14,7 +12,12 @@ class AnswersController < ApplicationController
     cookie     = answer_params[:cookie_key]
     attributes = { question: question, cookie_key: cookie }
     results    = { yes: answer_params[:yes] }
-    Answer.find_or_initialize_by(attributes).update(results) if question
+
+    if question
+      Answer.find_or_initialize_by(attributes).update(results)
+      TotalChannel.broadcast_answer_info(question.id)
+    end
+
     redirect_to action: :new, cookie_key: cookie
   end
 
