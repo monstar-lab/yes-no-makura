@@ -27,8 +27,13 @@
   right: 20px;
 }
 
+/* 質問登録画面の文字色 */
 h1#new-question {
   color: #005B98;
+}
+
+.form-control:active, .form-control:focus {
+  border-color: #005B98;
 }
 
 .fh5co-loader {
