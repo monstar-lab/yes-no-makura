@@ -257,3 +257,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/ruby,rails,sublimetext,vim,jetbrains,linux,osx,windows
+
+# User add
+.idea/
