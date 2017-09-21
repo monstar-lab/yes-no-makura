@@ -1,7 +1,7 @@
 (() => {
     App.total = App.cable.subscriptions.create("TotalChannel", {
-        connected: () => { debugger; },
-        disconnected: () => { debugger; },
+        connected: () => {},
+        disconnected: () => {},
         received: data => {
             const editnum = data;
             if (location.pathname === '/questions/'+ data['nowid'] + '/result') {
