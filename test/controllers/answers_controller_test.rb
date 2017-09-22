@@ -12,7 +12,7 @@ class AnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new answer' do
-    get root_url, params: { cookie_key: @cookie }
+    post answers_url , params: { cookie_key: @cookie }
     assert_response :success
   end
 
