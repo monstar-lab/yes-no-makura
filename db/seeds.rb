@@ -5,10 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-5.times do |n|
-  body = "質問-#{n+1} "
-  state = 'init'
-  Question.create!(body: body ,state: state)
-end
-

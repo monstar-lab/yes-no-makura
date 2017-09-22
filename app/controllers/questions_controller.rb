@@ -48,8 +48,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1/propose
   def propose
     return set_question unless params[:id] == '0'
-    @now_question = Question.find_by(state: :open)
-    @now_question.update(state: :close) if @now_question
+    @current_question = Question.find_by(state: :open)
+    @current_question.update(state: :close) if @current_question
     @question = Question.find_by(state: :init)
     return redirect_to over_questions_url unless @question
 

@@ -3,7 +3,6 @@ class AnswersController < ApplicationController
   def new
     @cookie = answer_params[:cookie_key]
     redirect_to action: :new, cookie_key: SecureRandom.uuid unless @cookie
-
   end
 
   # POST /answers
@@ -15,7 +14,7 @@ class AnswersController < ApplicationController
 
     if question
       Answer.find_or_initialize_by(attributes).update(results)
-      TotalChannel.broadcast_answer_info(question.id)
+      AnswersChannel.broadcast_answer_info(question.id)
     end
 
     redirect_to action: :new, cookie_key: cookie
