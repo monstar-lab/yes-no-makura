@@ -6,10 +6,6 @@
   <% %w(YES NO).each do |answer| %>
     <% params  = { cookie_key: @cookie, yes: (answer == 'YES') } %>
     <% message = "#{answer}の回答を送信します。リロードされれば回答完了です。\n「回答が完了しました」などのメッセージは表示されません。" %>
-      <% if answer == 'YES' %>
-          <%= button_to answer, { action: 'create' }, data: { confirm: message }, params: params, class: 'button yes' %>
-        <% else %>
-          <%= button_to answer, { action: 'create' }, data: { confirm: message }, params: params, class: 'button no' %>
-      <% end %>
+    <%= button_to answer, { action: 'create' }, data: { confirm: message }, params: params, class: "button #{answer.downcase}" %>
   <% end %>
 </div>
