@@ -11,7 +11,12 @@ class AnswersController < ApplicationController
     cookie     = answer_params[:cookie_key]
     attributes = { question: question, cookie_key: cookie }
     results    = { yes: answer_params[:yes] }
-    Answer.find_or_initialize_by(attributes).update(results) if question
+
+    if question
+      Answer.find_or_initialize_by(attributes).update(results)
+      AnswersChannel.broadcast_answer_info(question.id)
+    end
+
     redirect_to action: :new, cookie_key: cookie
   end
 

@@ -48,7 +48,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1/propose
   def propose
     return set_question unless params[:id] == '0'
-
+    @current_question = Question.find_by(state: :open)
+    @current_question.update(state: :close) if @current_question
     @question = Question.find_by(state: :init)
     return redirect_to over_questions_url unless @question
 
@@ -59,11 +60,7 @@ class QuestionsController < ApplicationController
 
   # PATCH /questions/1/close
   def close
-    if @question.update(state: :close)
-      redirect_to result_question_url(@question)
-    else
-      redirect_to propose_question_url(@question)
-    end
+    redirect_to result_question_url(@question)
   end
 
   # GET /questions/1/result
