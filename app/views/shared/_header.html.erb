@@ -34,7 +34,7 @@
               <h2></h2>
               <p><div class="btn btn-default">Result</div></p>
             <% when :admin %>
-              <div id="logo-app"><%= image_tag 'logo-app.png' %></div>
+              <h1 class="logo-style"><%= icon('circle-o', class: 'circle') %> yes-no-makura<%= icon('times', class: 'x-mark') %></h1>
               <h2>A Questionnaire System</h2>
               <p><%= link_to 'Start', propose_question_path(0), class: 'btn btn-default' %></p>
             <% when :propose %>

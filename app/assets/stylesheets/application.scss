@@ -14,21 +14,51 @@
  *= require_tree .
  *= require_self
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
 #fh5co-logo img {
   width: 10em;
 }
 
-/* アプリのロゴのサイズを画面の幅に合わせる */
-#logo-app img {
-  max-width: 70%;
-  height: auto;
-  position: relative;
-  right: 20px;
+/* アプリのロゴの描画 */
+
+$text-outline:
+      0 1px 0 #fff,
+      1px 0 0 #fff,
+      0 -1px 0 #fff,
+      -1px 0 0 #fff,
+      -1px -1px 0 #fff,
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff;
+
+/* アプリのロゴをcssで描画する */
+.logo-style
+{
+  font-weight : bold;
+  color: #EE9D19 !important;
+  text-shadow: $text-outline;
 }
 
+.circle
+{
+  color: #E34053;
+  text-shadow: $text-outline;
+  margin-right: -1.5%;
+  margin-top: 1%;
+  font-size: 90%;
+}
+
+.x-mark
+{
+  color: #7EBEE8;
+  text-shadow: $text-outline;
+}
+
+
 /* 質問登録画面の文字色 */
-h1#new-question {
+h1.new-question {
   color: #005B98;
 }
 
