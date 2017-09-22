@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class QuestionsControllerTest < ActionDispatch::IntegrationTest
-  def setup
+  setup do
     @question = questions(:one)
   end
 
@@ -16,7 +16,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create question' do
-    assert_difference('Question.count') do
+    assert_difference('Question.count', +1) do
       post questions_url, params: { question: { body: @question.body, state: @question.state } }
     end
 
@@ -35,6 +35,11 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update question' do
     patch question_url(@question), params: { question: { body: @question.body, state: @question.state } }
+    assert_redirected_to questions_url
+  end
+
+  test 'should close question' do
+    patch question_url(@question), params: { question: { state: :close } }
     assert_redirected_to questions_url
   end
 
