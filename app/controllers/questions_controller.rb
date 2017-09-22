@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
 
   # PATCH /questions/1/close
   def close
-      redirect_to result_question_url(@question)
+    redirect_to result_question_url(@question)
   end
 
   # GET /questions/1/result

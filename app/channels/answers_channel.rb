@@ -17,5 +17,5 @@ class AnswersChannel < ApplicationCable::Channel
       AnswersChannel.broadcast_to('count', answers_info)
     end
   end
-
 end
+
