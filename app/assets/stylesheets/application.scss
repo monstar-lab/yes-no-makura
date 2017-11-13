@@ -14,65 +14,62 @@
  *= require_tree .
  *= require_self
  */
- @import "font-awesome-sprockets";
- @import "font-awesome";
 
- /* アプリのベースカラー */
- $base-color: #005B98;
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
- /*アプリのセカンドカラー */
- $secound-color: #EE9D19;
+/* アプリのベースカラー */
+$base-color: #005B98;
 
- /* アプリのアクセントカラー */
- $acccent-color: #d72500;
+/* アプリのセカンドカラー */
+$secound-color: #EE9D19;
 
- /* アプリのロゴの描画の文字枠 */
- $text-outline-color: white;
+/* アプリのアクセントカラー */
+$acccent-color: #d72500;
 
- /* 全体のフォントと文字色 */
- body {
-   font-family: "hiragino kaku gothic pro","メイリオ", Arial, sans-serif;
- }
+/* アプリのロゴの描画の文字枠 */
+$text-outline-color: white;
 
- h1 {
-   font-weight: 600;
- }
+/* 全体のフォントと文字色 */
+body {
+  font-family: "hiragino kaku gothic pro", "メイリオ", Arial, sans-serif;
+}
 
- a {
-   color: $base-color;
-   font-weight: 400;
- }
+h1 {
+  font-weight: 600;
+}
 
- a:hover, a:active, a:focus {
-   color: $acccent-color;
- }
+a {
+  color: $base-color;
+  font-weight: 400;
+}
+
+a:hover, a:active, a:focus {
+  color: $acccent-color;
+}
 
 #fh5co-logo img {
   width: 10em;
 }
 
-
-
 $text-outline:
-      0 1px 0 $text-outline-color,
-      1px 0 0 $text-outline-color,
-      0 -1px 0 $text-outline-color,
-      -1px 0 0 $text-outline-color,
-      -1px -1px 0 $text-outline-color,
-      1px -1px 0 $text-outline-color,
-      -1px 1px 0 $text-outline-color,
-      1px 1px 0 $text-outline-color;
+0    1px  0 $text-outline-color,
+1px  0    0 $text-outline-color,
+0    -1px 0 $text-outline-color,
+-1px 0    0 $text-outline-color,
+-1px -1px 0 $text-outline-color,
+1px  -1px 0 $text-outline-color,
+-1px 1px  0 $text-outline-color,
+1px  1px  0 $text-outline-color;
 
 /* アプリのロゴをcssで描画する */
-.logo-style
-{
-  font-weight : bold;
+.logo-style {
+  font-weight: bold;
   color: $secound-color !important;
   text-shadow: $text-outline;
 }
 
-.circle
-{
+.circle {
   color: #E34053;
   text-shadow: $text-outline;
   margin-right: -1.5%;
@@ -80,8 +77,7 @@ $text-outline:
   font-size: 90%;
 }
 
-.x-mark
-{
+.x-mark {
   color: #7EBEE8;
   text-shadow: $text-outline;
 }
@@ -164,7 +160,7 @@ h1.new-question {
     font-size: 5vw;
   }
 
- /* yes no ボタンの色の変更 */
+  /* yes no ボタンの色の変更 */
   .button {
     width:            88%;
     margin-top:       3vh;
