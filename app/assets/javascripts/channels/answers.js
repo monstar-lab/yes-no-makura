@@ -1,5 +1,5 @@
 (() => {
-    App.answers = App.cable.subscriptions.create("AnswersChannel", {
+    App.answers = App.cable.subscriptions.create('AnswersChannel', {
         connected: () => {},
         disconnected: () => {},
         received: data => {

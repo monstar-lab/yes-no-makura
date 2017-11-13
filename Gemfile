@@ -25,10 +25,11 @@ gem 'jquery-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'redis'
+gem 'em-hiredis'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'em-hiredis'
-gem 'redis'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
