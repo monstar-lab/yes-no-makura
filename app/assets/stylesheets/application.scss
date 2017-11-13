@@ -15,8 +15,109 @@
  *= require_self
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* アプリのベースカラー */
+$base-color: #005B98;
+
+/* アプリのセカンドカラー */
+$secound-color: #EE9D19;
+
+/* アプリのアクセントカラー */
+$acccent-color: #d72500;
+
+/* アプリのロゴの描画の文字枠 */
+$text-outline-color: white;
+
+/* 全体のフォントと文字色 */
+body {
+  font-family: "hiragino kaku gothic pro", "メイリオ", Arial, sans-serif;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+a {
+  color: $base-color;
+  font-weight: 400;
+}
+
+a:hover, a:active, a:focus {
+  color: $acccent-color;
+}
+
 #fh5co-logo img {
   width: 10em;
+}
+
+$text-outline:
+0    1px  0 $text-outline-color,
+1px  0    0 $text-outline-color,
+0    -1px 0 $text-outline-color,
+-1px 0    0 $text-outline-color,
+-1px -1px 0 $text-outline-color,
+1px  -1px 0 $text-outline-color,
+-1px 1px  0 $text-outline-color,
+1px  1px  0 $text-outline-color;
+
+/* アプリのロゴをcssで描画する */
+.logo-style {
+  font-weight: bold;
+  color: $secound-color !important;
+  text-shadow: $text-outline;
+}
+
+.circle {
+  color: #E34053;
+  text-shadow: $text-outline;
+  margin-right: -1.5%;
+  margin-top: 1%;
+  font-size: 90%;
+}
+
+.x-mark {
+  color: #7EBEE8;
+  text-shadow: $text-outline;
+}
+
+/* 画面の背景色 */
+.fh5co-cover .overlay {
+  background: $base-color;
+}
+
+/* ボタンの色差し替え */
+#fh5co-header .display-tc .btn,
+#fh5co-counter .display-tc .btn,
+.fh5co-cover .display-tc .btn {
+  background: $secound-color !important;
+  background-color: $secound-color;
+}
+
+#fh5co-header .display-tc .btn:hover,
+#fh5co-counter .display-tc .btn:hover,
+.fh5co-cover .display-tc .btn:hover {
+  background: $secound-color !important;
+  background-color: $secound-color;
+}
+
+.btn-outline {
+  border-color: $secound-color;
+}
+
+.btn-outline:hover {
+  border-color: $secound-color;
+  background: #F6F7F8;
+}
+
+/* 質問登録画面の文字色 */
+h1.new-question {
+  color: $base-color;
+}
+
+.form-control:active, .form-control:focus {
+  border-color: $base-color;
 }
 
 .fh5co-loader {
@@ -59,6 +160,7 @@
     font-size: 5vw;
   }
 
+  /* yes no ボタンの色の変更 */
   .button {
     width:            88%;
     margin-top:       3vh;
@@ -66,11 +168,30 @@
     padding:          0;
     border:           1px solid transparent;
     border-radius:    4px;
-    background-color: #15a28e;
     color:            white;
     font-size:        18vh;
     font-weight:      bold;
   }
+
+  .yes {
+    background-color: #C92E36;
+  }
+
+  .no {
+    background-color: $base-color;
+  }
+}
+
+.btn-primary {
+  background: $secound-color !important;
+  background-color: $secound-color;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: $acccent-color !important;
+  background-color: $acccent-color;
+  border: none;
 }
 
 .feature-center h3 {
