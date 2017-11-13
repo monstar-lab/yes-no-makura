@@ -1,24 +1,93 @@
-# README
+# yes-no-makura アプリ概要
+任意の質問をリアルタイムで表示、回答を集計するアプリケーションです。質問はディスプレイやプロジェクタに表示し、回答者にはスマートフォンやタブレット等の端末から「yes」「no」で質問の回答をしてもらいます。
+イベントでの使用が考えられています。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 開発環境構築手順
+1. 任意の場所に`git clone URL` でプロジェクトを引っ張って来て下さい。
 
-* Ruby version
+1. プロジェクトごとにrubyのバージョンが異なるため、rubyのバージョンを変更する必要があります。これには`rbenv`を使用します。
+詳しい使用方法は[コチラ](http://vdeep.net/mac-ruby-rubyonrails)を参照して下さい。
 
-* System dependencies
+1. `rbenv install` を実行し必要なバージョンのrubyをインストールします。`.ruby-version`にバージョンを設定してあるので、バージョン指定は必要ありません。
 
-* Configuration
+1. rubyのバージョンを変更したため、`gem install bundler`でbundlerもインストールし直します。
 
-* Database creation
+1. `bundle install`を行って下さい。
 
-* Database initialization
+1. `rails db:migrate` でマイグレーションを行って下さい。
 
-* How to run the test suite
+1. `rails s`で動作確認を行って下さい。
 
-* Services (job queues, cache servers, search engines, etc.)
+1. まずは試しにアプリを使ってみましょう。
 
-* Deployment instructions
 
-* ...
+## 基本的なアプリの使い方
+### 管理者(質問の管理や表示を行う)
+
+ - 管理画面の表示
+
+    管理者としてアプリを使用する場合は`/admin`にアクセスしてください。※ルートは回答者の回答用画面が表示されます。
+
+
+- 質問の登録
+  1. 画面右上の`QUESTIONS`を押します。
+
+  1. 画面中央に`NEW QUESTION`のボタンが表示されます。
+
+  1. ボタンを押すと質問の登録画面に移ります。
+
+  1. Bodyに質問文を入力して下さい。
+
+  1. Stateは`init`を選択して下さい。(`open`は回答中、`close`は回答終了の状態を指します)
+
+  1. `Create Question`を押すと質問が登録されます。
+
+
+- 質問の表示
+  1. 質問を登録し終えたらHOME画面に戻り`START`を押しましょう。
+
+  1. 画面に登録した質問が表示されます。その間に回答者に質問の回答をしてもらいます。
+
+  1. 頃合いを見て`RESULT`ボタンを押します。
+
+  1. 画面に結果が表示されます。(yesと回答した人数が表示されます)
+
+  1. 次の質問がある場合は`Next Question`を押します。
+
+- 個別の質問の編集・削除
+  1. 登録した質問は一覧で表示されています。
+
+  1. 個別の質問の内容の変更を行う場合はOptionsの`Edit`、削除の場合は`Destroy`を押して下さい
+
+
+
+#### 一括での操作
+- 回答のリセット  
+
+  回答のStateを一括でinitの状態に戻すには質問が表示されている表の上の`INITIALISE ALL`を押して下さい。
+
+- 回答結果のリセット  
+
+  回答結果をリセットしたい場合は表の上に表示されている`RESET ALL ANSWERS`を押して下さい。
+
+- 質問の削除  
+  質問を一括で削除したい場合は表の上に表示されている`DELETE ALL`を押して下さい。
+  ※集計結果も削除されるので注意!!
+
+
+
+### 回答者(質問に対し回答を行う)
+- 質問への回答
+  1. スマートフォンやタブレット(PCも可)等の端末からルートアドレスにアクセスをする。回答ページが表示されます。
+
+  1. 管理者が質問をディスプレイやプロジェクタで投影しています。その質問に対し、「yes」「no」のボタンを押してください。
+    ※質問が表示されていない場合はボタンを押しても回答はカウントされません。
+  1. 回答者がOKを押して質問を送信すると、それらを集計したものが管理者の画面に表示されます。
+
+
+
+## [開発時の参考資料] IssueやPull requestsの送り方
+- [良いIssueの書き方](http://kuroeveryday.blogspot.jp/2015/08/bug-issues.html)
+- [基本的なPull requestsの送り方](http://www.atmarkit.co.jp/ait/articles/1702/27/news022.html)
+- [良いPull requestsの送り方](https://yakst.com/ja/posts/1625)
