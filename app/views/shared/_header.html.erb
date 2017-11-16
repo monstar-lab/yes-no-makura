@@ -48,6 +48,7 @@
                 <span id="yes-count"><%= @yes_count %></span>
                 <span id="answers-count">/<%= @answers_count %></span>
               </h1>
+                <h2 id="subquestion"> Q:<%= @question.body %></h2>
               <p><%= link_to 'Next Question', propose_question_path(0), class: 'btn btn-default' %></p>
             <% when :over %>
               <h1>以上で質問を終わります。<br>ありがとうございました。</h1>
