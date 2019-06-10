@@ -30,7 +30,7 @@
               <h2></h2>
               <p><%= link_to 'New Question', new_question_path, class: 'btn btn-default' %></p>
             <% when :show %>
-              <%= raw qr_gen(request.base_url, 5)%>
+<!--          <div class ="qr-code-style"><%#= raw qr_gen(request.base_url, 8)%></div>-->
               <h1 id="question"><%= @question.body %></h1>
               <h2></h2>
               <p><div class="btn btn-default">Result</div></p>
@@ -57,5 +57,9 @@
         </div>
       </div>
     </div>
+    <% case current %>
+    <% when :show %>
+    <div class ="qr-code-style"><%= raw qr_gen(request.base_url, 8)%></div>
+    <% end %>
   </div>
 </header>
