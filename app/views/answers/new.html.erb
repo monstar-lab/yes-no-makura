@@ -1,6 +1,5 @@
 <div id="answers" class="feature-center">
   <%= image_tag 'logo-color.png' %>
-  <%= raw qr_gen(request.base_url, 5)%>
   <div class="text">アンケートに回答してください</div>
 
   <% %w(YES NO).each do |answer| %>
