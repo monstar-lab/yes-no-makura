@@ -206,4 +206,15 @@ h1.new-question {
   position: absolute;
   right: 5%;
   bottom: 5%;
+
+}
+
+.home-qr-code-style{
+  margin: 15% 0 20px 0;
+
+}
+
+.qr-code-style svg, .home-qr-code-style svg{
+    background-color: #ffffff;
+    border: .2em solid #ffffff;
 }

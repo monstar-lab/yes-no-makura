@@ -35,6 +35,7 @@
               <h2></h2>
               <p><div class="btn btn-default">Result</div></p>
             <% when :admin %>
+              <div class="home-qr-code-style"><%= raw qr_gen(request.base_url, 12)%></div>
               <h1 class="logo-style"><%= icon('circle-o', class: 'circle') %>yes-no-makura<%= icon('times', class: 'x-mark') %></h1>
               <h2>A Questionnaire System</h2>
               <p><%= link_to 'Start', propose_question_path(0), class: 'btn btn-default' %></p>
@@ -59,6 +60,8 @@
     </div>
     <% case current %>
     <% when :show %>
+    <div class ="qr-code-style"><%= raw qr_gen(request.base_url, 8)%></div>
+    <% when :propose %>
     <div class ="qr-code-style"><%= raw qr_gen(request.base_url, 8)%></div>
     <% end %>
   </div>
