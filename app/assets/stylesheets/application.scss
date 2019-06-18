@@ -201,3 +201,20 @@ h1.new-question {
 .feature-center .btn:link, .feature-center .btn:visited, .feature-center .btn:hover, .feature-center .btn:active {
   color: #50CB86;
 }
+
+.qr-code-style{
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+
+}
+
+.home-qr-code-style{
+  margin: 15% 0 20px 0;
+
+}
+
+.qr-code-style svg, .home-qr-code-style svg{
+    background-color: #ffffff;
+    outline: 9.5mm solid #ffffff;
+}
